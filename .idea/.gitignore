@@ -1,0 +1,14 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# PyCharm / IDE
+.idea/
+*.iml
+
+# Python
+__pycache__/
+*.pyc
+
+# Project data (generated files)
+data/
+*.csv
