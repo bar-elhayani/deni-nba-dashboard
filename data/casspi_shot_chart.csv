@@ -1,0 +1,623 @@
+LOC_X,LOC_Y,SHOT_ZONE_BASIC,SHOT_ZONE_AREA,SHOT_ZONE_RANGE,SHOT_MADE_FLAG,GAME_DATE,SEASON,PERIOD,ACTION_TYPE,SHOT_RESULT
+-74,120,In The Paint (Non-RA),Left Side(L),8-16 ft.,0,20151028,2015-16,1,Jump Shot,Missed
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151028,2015-16,1,Driving Dunk Shot,Made
+-83,16,Mid-Range,Left Side(L),8-16 ft.,0,20151028,2015-16,2,Jump Shot,Missed
+64,237,Above the Break 3,Center(C),24+ ft.,1,20151028,2015-16,4,Jump Shot,Made
+107,7,Mid-Range,Right Side(R),8-16 ft.,0,20151028,2015-16,4,Jump Shot,Missed
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151030,2015-16,1,Driving Dunk Shot,Made
+-7,36,Restricted Area,Center(C),Less Than 8 ft.,1,20151030,2015-16,1,Tip Layup Shot,Made
+169,198,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151030,2015-16,2,Jump Shot,Missed
+-233,95,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151030,2015-16,2,Jump Shot,Missed
+4,23,Restricted Area,Center(C),Less Than 8 ft.,1,20151030,2015-16,2,Layup Shot,Made
+53,7,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151030,2015-16,3,Running Jump Shot,Missed
+-19,26,Restricted Area,Center(C),Less Than 8 ft.,1,20151030,2015-16,4,Layup Shot,Made
+-22,13,Restricted Area,Center(C),Less Than 8 ft.,1,20151030,2015-16,4,Driving Layup Shot,Made
+37,62,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151030,2015-16,4,Jump Shot,Missed
+33,61,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151031,2015-16,1,Jump Shot,Missed
+-12,0,Restricted Area,Center(C),Less Than 8 ft.,1,20151031,2015-16,1,Layup Shot,Made
+-6,257,Above the Break 3,Center(C),24+ ft.,1,20151031,2015-16,1,Jump Shot,Made
+-34,36,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151031,2015-16,2,Running Jump Shot,Missed
+78,36,In The Paint (Non-RA),Right Side(R),8-16 ft.,1,20151031,2015-16,3,Jump Bank Shot,Made
+-1,21,Restricted Area,Center(C),Less Than 8 ft.,1,20151031,2015-16,3,Cutting Finger Roll Layup Shot,Made
+69,7,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151103,2015-16,1,Jump Shot,Missed
+228,8,Right Corner 3,Right Side(R),24+ ft.,1,20151103,2015-16,1,Jump Shot,Made
+-232,7,Left Corner 3,Left Side(L),24+ ft.,0,20151103,2015-16,2,Jump Shot,Missed
+127,7,Mid-Range,Right Side(R),8-16 ft.,0,20151103,2015-16,3,Jump Shot,Missed
+73,57,In The Paint (Non-RA),Right Side(R),8-16 ft.,0,20151103,2015-16,3,Jump Shot,Missed
+-1,19,Restricted Area,Center(C),Less Than 8 ft.,0,20151103,2015-16,3,Layup Shot,Missed
+4,31,Restricted Area,Center(C),Less Than 8 ft.,0,20151103,2015-16,4,Jump Shot,Missed
+74,237,Above the Break 3,Center(C),24+ ft.,1,20151104,2015-16,3,Step Back Jump shot,Made
+-52,2,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151104,2015-16,3,Jump Shot,Missed
+55,259,Above the Break 3,Center(C),24+ ft.,1,20151104,2015-16,3,Jump Shot,Made
+-35,36,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151104,2015-16,4,Jump Shot,Missed
+-16,11,Restricted Area,Center(C),Less Than 8 ft.,0,20151104,2015-16,4,Layup Shot,Missed
+17,7,Restricted Area,Center(C),Less Than 8 ft.,0,20151106,2015-16,1,Layup Shot,Missed
+-169,178,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151106,2015-16,1,Jump Shot,Made
+15,77,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151106,2015-16,2,Running Jump Shot,Made
+4,264,Above the Break 3,Center(C),24+ ft.,0,20151106,2015-16,2,Jump Shot,Missed
+10,41,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151106,2015-16,2,Cutting Finger Roll Layup Shot,Made
+9,13,Restricted Area,Center(C),Less Than 8 ft.,1,20151106,2015-16,3,Layup Shot,Made
+28,21,Restricted Area,Center(C),Less Than 8 ft.,1,20151106,2015-16,3,Cutting Layup Shot,Made
+20,11,Restricted Area,Center(C),Less Than 8 ft.,1,20151106,2015-16,3,Driving Layup Shot,Made
+-45,262,Above the Break 3,Center(C),24+ ft.,1,20151106,2015-16,3,Jump Shot,Made
+-79,16,In The Paint (Non-RA),Left Side(L),8-16 ft.,1,20151106,2015-16,4,Jump Shot,Made
+10,277,Above the Break 3,Center(C),24+ ft.,0,20151107,2015-16,2,Jump Shot,Missed
+-12,65,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151107,2015-16,3,Floating Jump shot,Missed
+2,262,Above the Break 3,Center(C),24+ ft.,0,20151107,2015-16,3,Jump Shot,Missed
+-235,23,Left Corner 3,Left Side(L),24+ ft.,1,20151107,2015-16,3,Jump Shot,Made
+37,21,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151107,2015-16,3,Layup Shot,Made
+-168,193,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151107,2015-16,3,Jump Shot,Made
+-29,18,Restricted Area,Center(C),Less Than 8 ft.,1,20151107,2015-16,4,Cutting Layup Shot,Made
+236,21,Right Corner 3,Right Side(R),24+ ft.,0,20151109,2015-16,1,Jump Shot,Missed
+28,11,Restricted Area,Center(C),Less Than 8 ft.,1,20151109,2015-16,1,Layup Shot,Made
+38,75,In The Paint (Non-RA),Center(C),8-16 ft.,0,20151109,2015-16,1,Jump Shot,Missed
+-2,65,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151109,2015-16,2,Floating Jump shot,Missed
+-14,28,Restricted Area,Center(C),Less Than 8 ft.,1,20151109,2015-16,2,Driving Layup Shot,Made
+-12,278,Above the Break 3,Center(C),24+ ft.,0,20151109,2015-16,2,Jump Shot,Missed
+22,23,Restricted Area,Center(C),Less Than 8 ft.,0,20151109,2015-16,2,Cutting Layup Shot,Missed
+228,2,Right Corner 3,Right Side(R),24+ ft.,1,20151109,2015-16,3,Jump Shot,Made
+1,244,Above the Break 3,Center(C),24+ ft.,1,20151109,2015-16,4,Jump Shot,Made
+9,11,Restricted Area,Center(C),Less Than 8 ft.,1,20151109,2015-16,4,Layup Shot,Made
+1,26,Restricted Area,Center(C),Less Than 8 ft.,1,20151109,2015-16,4,Finger Roll Layup Shot,Made
+-40,31,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151109,2015-16,4,Hook Shot,Missed
+10,9,Restricted Area,Center(C),Less Than 8 ft.,1,20151109,2015-16,4,Finger Roll Layup Shot,Made
+-42,36,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151109,2015-16,4,Driving Hook Shot,Missed
+232,7,Right Corner 3,Right Side(R),24+ ft.,1,20151111,2015-16,1,Jump Shot,Made
+-107,228,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151111,2015-16,2,Jump Shot,Missed
+-27,13,Restricted Area,Center(C),Less Than 8 ft.,1,20151111,2015-16,2,Driving Layup Shot,Made
+19,62,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151111,2015-16,2,Running Jump Shot,Made
+17,21,Restricted Area,Center(C),Less Than 8 ft.,0,20151111,2015-16,3,Layup Shot,Missed
+82,247,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151113,2015-16,1,Jump Shot,Missed
+45,28,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151113,2015-16,1,Driving Floating Jump Shot,Made
+137,214,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151113,2015-16,1,Jump Shot,Missed
+9,38,Restricted Area,Center(C),Less Than 8 ft.,0,20151113,2015-16,2,Driving Layup Shot,Missed
+-233,8,Left Corner 3,Left Side(L),24+ ft.,1,20151113,2015-16,2,Jump Shot,Made
+127,218,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151113,2015-16,4,Jump Shot,Missed
+-11,46,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151113,2015-16,4,Finger Roll Layup Shot,Missed
+-52,67,In The Paint (Non-RA),Left Side(L),8-16 ft.,0,20151113,2015-16,4,Jump Shot,Missed
+0,11,Restricted Area,Center(C),Less Than 8 ft.,0,20151113,2015-16,4,Tip Layup Shot,Missed
+20,7,Restricted Area,Center(C),Less Than 8 ft.,1,20151115,2015-16,1,Running Layup Shot,Made
+151,208,Above the Break 3,Right Side Center(RC),24+ ft.,1,20151115,2015-16,2,Step Back Jump shot,Made
+27,249,Above the Break 3,Center(C),24+ ft.,0,20151115,2015-16,2,Jump Shot,Missed
+-47,28,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151115,2015-16,2,Hook Shot,Made
+-160,198,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151115,2015-16,3,Jump Shot,Missed
+-25,16,Restricted Area,Center(C),Less Than 8 ft.,1,20151115,2015-16,3,Cutting Layup Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151115,2015-16,4,Cutting Dunk Shot,Made
+-214,144,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151115,2015-16,4,Jump Shot,Missed
+6,21,Restricted Area,Center(C),Less Than 8 ft.,1,20151115,2015-16,4,Layup Shot,Made
+-25,87,In The Paint (Non-RA),Center(C),8-16 ft.,0,20151118,2015-16,1,Jump Shot,Missed
+-16,80,In The Paint (Non-RA),Center(C),8-16 ft.,1,20151118,2015-16,2,Driving Floating Jump Shot,Made
+15,75,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151118,2015-16,2,Driving Floating Jump Shot,Made
+9,0,Restricted Area,Center(C),Less Than 8 ft.,1,20151118,2015-16,2,Running Layup Shot,Made
+240,-6,Right Corner 3,Right Side(R),24+ ft.,0,20151118,2015-16,3,Jump Shot,Missed
+2,8,Restricted Area,Center(C),Less Than 8 ft.,1,20151118,2015-16,4,Driving Finger Roll Layup Shot,Made
+159,200,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151118,2015-16,4,Pullup Jump shot,Missed
+-12,2,Restricted Area,Center(C),Less Than 8 ft.,0,20151118,2015-16,4,Running Layup Shot,Missed
+-233,31,Left Corner 3,Left Side(L),24+ ft.,0,20151119,2015-16,1,Jump Shot,Missed
+-20,16,Restricted Area,Center(C),Less Than 8 ft.,0,20151119,2015-16,1,Driving Finger Roll Layup Shot,Missed
+236,46,Right Corner 3,Right Side(R),24+ ft.,1,20151119,2015-16,2,Step Back Jump shot,Made
+-60,0,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151119,2015-16,2,Jump Shot,Made
+109,219,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151119,2015-16,2,Jump Shot,Missed
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151119,2015-16,3,Running Dunk Shot,Made
+-24,3,Restricted Area,Center(C),Less Than 8 ft.,1,20151119,2015-16,3,Driving Layup Shot,Made
+19,26,Restricted Area,Center(C),Less Than 8 ft.,1,20151119,2015-16,3,Floating Jump shot,Made
+40,26,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151119,2015-16,4,Jump Bank Shot,Missed
+20,247,Above the Break 3,Center(C),24+ ft.,1,20151119,2015-16,4,Jump Shot,Made
+-12,65,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151119,2015-16,4,Floating Jump shot,Made
+-19,56,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151121,2015-16,1,Floating Jump shot,Made
+-179,174,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151121,2015-16,1,Running Jump Shot,Missed
+27,9,Restricted Area,Center(C),Less Than 8 ft.,0,20151121,2015-16,1,Layup Shot,Missed
+0,41,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151121,2015-16,2,Jump Shot,Missed
+-11,3,Restricted Area,Center(C),Less Than 8 ft.,0,20151121,2015-16,2,Layup Shot,Missed
+4,18,Restricted Area,Center(C),Less Than 8 ft.,1,20151121,2015-16,2,Layup Shot,Made
+120,237,Above the Break 3,Right Side Center(RC),24+ ft.,1,20151121,2015-16,2,Jump Shot,Made
+-14,-5,Restricted Area,Center(C),Less Than 8 ft.,1,20151121,2015-16,3,Running Layup Shot,Made
+-11,11,Restricted Area,Center(C),Less Than 8 ft.,1,20151121,2015-16,3,Driving Layup Shot,Made
+30,321,Above the Break 3,Center(C),24+ ft.,0,20151121,2015-16,4,Jump Shot,Missed
+27,7,Restricted Area,Center(C),Less Than 8 ft.,0,20151121,2015-16,4,Layup Shot,Missed
+-14,3,Restricted Area,Center(C),Less Than 8 ft.,1,20151123,2015-16,2,Putback Layup Shot,Made
+-102,234,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151123,2015-16,2,Jump Shot,Missed
+-2,252,Above the Break 3,Center(C),24+ ft.,1,20151123,2015-16,3,Jump Shot,Made
+-20,75,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151123,2015-16,3,Jump Shot,Missed
+-181,180,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151123,2015-16,3,Jump Shot,Missed
+12,7,Restricted Area,Center(C),Less Than 8 ft.,0,20151123,2015-16,4,Layup Shot,Missed
+-235,120,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151123,2015-16,4,Jump Shot,Missed
+-11,-1,Restricted Area,Center(C),Less Than 8 ft.,1,20151125,2015-16,1,Driving Layup Shot,Made
+168,193,Above the Break 3,Right Side Center(RC),24+ ft.,1,20151125,2015-16,1,Jump Shot,Made
+-133,252,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151125,2015-16,2,Jump Shot,Made
+-4,0,Restricted Area,Center(C),Less Than 8 ft.,1,20151125,2015-16,2,Layup Shot,Made
+-129,252,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151125,2015-16,2,Jump Shot,Missed
+-2,11,Restricted Area,Center(C),Less Than 8 ft.,0,20151125,2015-16,3,Layup Shot,Missed
+-6,8,Restricted Area,Center(C),Less Than 8 ft.,1,20151125,2015-16,4,Driving Layup Shot,Made
+-1,269,Above the Break 3,Center(C),24+ ft.,0,20151125,2015-16,4,Jump Shot,Missed
+-222,183,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151125,2015-16,4,Jump Shot,Made
+-135,223,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151127,2015-16,1,Jump Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151127,2015-16,1,Driving Dunk Shot,Made
+63,100,In The Paint (Non-RA),Right Side(R),8-16 ft.,0,20151127,2015-16,1,Running Jump Shot,Missed
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151127,2015-16,1,Alley Oop Dunk Shot,Made
+0,13,Restricted Area,Center(C),Less Than 8 ft.,1,20151127,2015-16,2,Cutting Layup Shot,Made
+33,13,Restricted Area,Center(C),Less Than 8 ft.,1,20151127,2015-16,2,Cutting Layup Shot,Made
+10,336,Above the Break 3,Center(C),24+ ft.,0,20151127,2015-16,2,Jump Shot,Missed
+105,223,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151127,2015-16,3,Jump Shot,Missed
+-161,205,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151127,2015-16,3,Jump Shot,Made
+14,252,Above the Break 3,Center(C),24+ ft.,0,20151127,2015-16,4,Jump Shot,Missed
+114,259,Above the Break 3,Right Side Center(RC),24+ ft.,1,20151128,2015-16,1,Pullup Jump shot,Made
+4,8,Restricted Area,Center(C),Less Than 8 ft.,0,20151128,2015-16,1,Layup Shot,Missed
+-110,234,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151128,2015-16,2,Jump Shot,Missed
+1,16,Restricted Area,Center(C),Less Than 8 ft.,0,20151128,2015-16,2,Tip Layup Shot,Missed
+32,257,Above the Break 3,Center(C),24+ ft.,0,20151128,2015-16,2,Jump Shot,Missed
+2,2,Restricted Area,Center(C),Less Than 8 ft.,0,20151128,2015-16,2,Tip Layup Shot,Missed
+105,23,Mid-Range,Right Side(R),8-16 ft.,0,20151128,2015-16,3,Jump Shot,Missed
+-6,75,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151128,2015-16,3,Jump Shot,Missed
+-27,247,Above the Break 3,Center(C),24+ ft.,1,20151128,2015-16,4,Pullup Jump shot,Made
+-7,252,Above the Break 3,Center(C),24+ ft.,1,20151128,2015-16,4,Pullup Jump shot,Made
+43,18,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151130,2015-16,1,Driving Layup Shot,Made
+14,249,Above the Break 3,Center(C),24+ ft.,0,20151130,2015-16,2,Jump Shot,Missed
+30,41,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151130,2015-16,2,Driving Hook Shot,Missed
+-81,242,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151130,2015-16,2,Jump Shot,Made
+97,224,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151130,2015-16,3,Jump Shot,Missed
+-19,7,Restricted Area,Center(C),Less Than 8 ft.,1,20151130,2015-16,4,Reverse Layup Shot,Made
+1,257,Above the Break 3,Center(C),24+ ft.,0,20151130,2015-16,4,Jump Shot,Missed
+-209,144,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151130,2015-16,4,Jump Shot,Made
+-27,8,Restricted Area,Center(C),Less Than 8 ft.,1,20151205,2015-16,1,Layup Shot,Made
+43,2,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151205,2015-16,2,Driving Layup Shot,Missed
+74,242,Above the Break 3,Center(C),24+ ft.,1,20151205,2015-16,2,Jump Shot,Made
+153,183,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151205,2015-16,2,Jump Shot,Missed
+-4,41,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151205,2015-16,2,Jump Shot,Made
+-245,18,Left Corner 3,Left Side(L),24+ ft.,0,20151205,2015-16,2,Jump Shot,Missed
+22,43,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151205,2015-16,2,Layup Shot,Missed
+-63,36,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151205,2015-16,2,Floating Jump shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,0,20151205,2015-16,2,Driving Dunk Shot,Missed
+-43,678,Backcourt,Back Court(BC),Back Court Shot,0,20151205,2015-16,3,Jump Shot,Missed
+-151,219,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151205,2015-16,4,Jump Shot,Missed
+102,224,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151205,2015-16,4,Jump Shot,Missed
+-63,31,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151205,2015-16,4,Jump Shot,Made
+-29,13,Restricted Area,Center(C),Less Than 8 ft.,1,20151205,2015-16,4,Running Jump Shot,Made
+-119,228,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151206,2015-16,1,Jump Shot,Missed
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151206,2015-16,1,Dunk Shot,Made
+17,7,Restricted Area,Center(C),Less Than 8 ft.,1,20151206,2015-16,1,Driving Layup Shot,Made
+-1,16,Restricted Area,Center(C),Less Than 8 ft.,0,20151206,2015-16,2,Tip Layup Shot,Missed
+163,183,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151206,2015-16,3,Jump Shot,Missed
+-219,2,Mid-Range,Left Side(L),16-24 ft.,0,20151206,2015-16,3,Jump Shot,Missed
+-9,242,Above the Break 3,Center(C),24+ ft.,1,20151206,2015-16,3,Jump Shot,Made
+9,0,Restricted Area,Center(C),Less Than 8 ft.,0,20151206,2015-16,4,Layup Shot,Missed
+156,195,Above the Break 3,Right Side Center(RC),24+ ft.,1,20151206,2015-16,4,Jump Shot,Made
+-4,26,Restricted Area,Center(C),Less Than 8 ft.,1,20151208,2015-16,1,Driving Layup Shot,Made
+-81,46,Mid-Range,Left Side(L),8-16 ft.,0,20151208,2015-16,1,Jump Shot,Missed
+35,11,Restricted Area,Center(C),Less Than 8 ft.,1,20151208,2015-16,1,Driving Layup Shot,Made
+-78,229,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151208,2015-16,2,Jump Shot,Made
+25,242,Above the Break 3,Center(C),24+ ft.,0,20151208,2015-16,2,Jump Shot,Missed
+32,23,Restricted Area,Center(C),Less Than 8 ft.,0,20151208,2015-16,2,Layup Shot,Missed
+2,252,Above the Break 3,Center(C),24+ ft.,0,20151208,2015-16,2,Jump Shot,Missed
+-30,16,Restricted Area,Center(C),Less Than 8 ft.,1,20151208,2015-16,2,Layup Shot,Made
+101,232,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151208,2015-16,2,Jump Shot,Missed
+130,218,Above the Break 3,Right Side Center(RC),24+ ft.,1,20151208,2015-16,3,Jump Shot,Made
+2,26,Restricted Area,Center(C),Less Than 8 ft.,1,20151208,2015-16,3,Layup Shot,Made
+-225,101,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151208,2015-16,3,Jump Shot,Made
+-4,110,In The Paint (Non-RA),Center(C),8-16 ft.,0,20151208,2015-16,4,Jump Shot,Missed
+-79,28,In The Paint (Non-RA),Left Side(L),8-16 ft.,0,20151208,2015-16,4,Jump Shot,Missed
+156,198,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151208,2015-16,4,Jump Shot,Missed
+191,154,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151208,2015-16,4,Jump Shot,Missed
+-17,10,Restricted Area,Center(C),Less Than 8 ft.,0,20151210,2015-16,1,Running Layup Shot,Missed
+12,8,Restricted Area,Center(C),Less Than 8 ft.,1,20151210,2015-16,1,Cutting Layup Shot,Made
+-88,228,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151210,2015-16,1,Jump Shot,Missed
+46,3,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151210,2015-16,2,Driving Layup Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151210,2015-16,2,Dunk Shot,Made
+30,80,In The Paint (Non-RA),Center(C),8-16 ft.,0,20151210,2015-16,2,Turnaround Jump Shot,Missed
+-184,170,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151210,2015-16,3,Jump Shot,Missed
+43,13,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151210,2015-16,3,Driving Layup Shot,Missed
+30,21,Restricted Area,Center(C),Less Than 8 ft.,1,20151210,2015-16,3,Driving Layup Shot,Made
+-60,26,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151210,2015-16,4,Jump Shot,Missed
+22,8,Restricted Area,Center(C),Less Than 8 ft.,1,20151215,2015-16,1,Running Layup Shot,Made
+-22,7,Restricted Area,Center(C),Less Than 8 ft.,1,20151215,2015-16,1,Driving Reverse Layup Shot,Made
+51,21,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151215,2015-16,1,Jump Shot,Missed
+-7,57,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151215,2015-16,1,Jump Shot,Missed
+225,115,Above the Break 3,Right Side Center(RC),24+ ft.,1,20151215,2015-16,2,Jump Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151215,2015-16,2,Alley Oop Dunk Shot,Made
+0,247,Above the Break 3,Center(C),24+ ft.,1,20151215,2015-16,2,Jump Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151215,2015-16,3,Driving Dunk Shot,Made
+-194,156,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151215,2015-16,3,Jump Shot,Missed
+-155,188,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151215,2015-16,3,Jump Shot,Made
+-1,16,Restricted Area,Center(C),Less Than 8 ft.,1,20151215,2015-16,4,Tip Layup Shot,Made
+2,247,Above the Break 3,Center(C),24+ ft.,0,20151218,2015-16,1,Jump Shot,Missed
+15,51,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151218,2015-16,1,Jump Shot,Missed
+1,249,Above the Break 3,Center(C),24+ ft.,1,20151218,2015-16,1,Jump Shot,Made
+25,11,Restricted Area,Center(C),Less Than 8 ft.,0,20151218,2015-16,2,Driving Layup Shot,Missed
+230,46,Right Corner 3,Right Side(R),24+ ft.,1,20151218,2015-16,3,Jump Shot,Made
+223,100,Above the Break 3,Right Side Center(RC),24+ ft.,1,20151218,2015-16,3,Jump Shot,Made
+-142,198,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151218,2015-16,4,Jump Shot,Missed
+64,-5,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151220,2015-16,1,Driving Floating Bank Jump Shot,Missed
+-227,3,Left Corner 3,Left Side(L),24+ ft.,1,20151220,2015-16,1,Jump Shot,Made
+12,2,Restricted Area,Center(C),Less Than 8 ft.,1,20151220,2015-16,1,Cutting Layup Shot,Made
+99,228,Above the Break 3,Right Side Center(RC),24+ ft.,1,20151220,2015-16,1,Jump Shot,Made
+37,17,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151220,2015-16,1,Cutting Finger Roll Layup Shot,Made
+232,67,Right Corner 3,Right Side(R),24+ ft.,1,20151220,2015-16,4,Jump Shot,Made
+32,22,Restricted Area,Center(C),Less Than 8 ft.,1,20151220,2015-16,4,Driving Finger Roll Layup Shot,Made
+230,-15,Right Corner 3,Right Side(R),24+ ft.,0,20151220,2015-16,4,Jump Shot,Missed
+-4,-1,Restricted Area,Center(C),Less Than 8 ft.,0,20151221,2015-16,1,Layup Shot,Missed
+-107,252,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151221,2015-16,3,Jump Shot,Missed
+-24,26,Restricted Area,Center(C),Less Than 8 ft.,1,20151221,2015-16,3,Floating Jump shot,Made
+204,183,Above the Break 3,Right Side Center(RC),24+ ft.,1,20151221,2015-16,3,Jump Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151221,2015-16,3,Driving Dunk Shot,Made
+-142,229,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151221,2015-16,3,Jump Shot,Missed
+-9,11,Restricted Area,Center(C),Less Than 8 ft.,0,20151221,2015-16,4,Layup Shot,Missed
+20,0,Restricted Area,Center(C),Less Than 8 ft.,0,20151223,2015-16,1,Driving Layup Shot,Missed
+-19,23,Restricted Area,Center(C),Less Than 8 ft.,1,20151223,2015-16,1,Hook Shot,Made
+-192,165,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151223,2015-16,2,Jump Shot,Made
+166,228,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151223,2015-16,2,Jump Shot,Missed
+20,56,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151223,2015-16,3,Running Jump Shot,Missed
+123,224,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151223,2015-16,4,Jump Shot,Missed
+-6,7,Restricted Area,Center(C),Less Than 8 ft.,1,20151223,2015-16,4,Reverse Layup Shot,Made
+115,249,Above the Break 3,Right Side Center(RC),24+ ft.,1,20151223,2015-16,4,Jump Shot,Made
+9,3,Restricted Area,Center(C),Less Than 8 ft.,1,20151223,2015-16,4,Driving Layup Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151223,2015-16,4,Alley Oop Dunk Shot,Made
+-151,223,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151223,2015-16,4,Jump Shot,Missed
+12,254,Above the Break 3,Center(C),24+ ft.,1,20151227,2015-16,1,Jump Shot,Made
+-9,52,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151227,2015-16,1,Hook Shot,Missed
+-65,16,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20151227,2015-16,1,Jump Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151227,2015-16,1,Cutting Dunk Shot,Made
+230,28,Right Corner 3,Right Side(R),24+ ft.,1,20151227,2015-16,2,Jump Shot,Made
+20,247,Above the Break 3,Center(C),24+ ft.,1,20151227,2015-16,3,Step Back Jump shot,Made
+-199,154,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151227,2015-16,3,Jump Shot,Missed
+-24,26,Restricted Area,Center(C),Less Than 8 ft.,0,20151227,2015-16,4,Jump Shot,Missed
+-169,195,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151228,2015-16,1,Jump Shot,Missed
+235,-5,Right Corner 3,Right Side(R),24+ ft.,0,20151228,2015-16,1,Jump Shot,Missed
+-2,23,Restricted Area,Center(C),Less Than 8 ft.,0,20151228,2015-16,1,Layup Shot,Missed
+19,16,Restricted Area,Center(C),Less Than 8 ft.,1,20151228,2015-16,1,Driving Finger Roll Layup Shot,Made
+-137,228,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151228,2015-16,1,Pullup Jump shot,Made
+-115,242,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151228,2015-16,2,Jump Shot,Made
+45,244,Above the Break 3,Center(C),24+ ft.,1,20151228,2015-16,2,Jump Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151228,2015-16,2,Driving Dunk Shot,Made
+1,282,Above the Break 3,Center(C),24+ ft.,1,20151228,2015-16,2,Jump Shot,Made
+-71,237,Above the Break 3,Center(C),24+ ft.,1,20151228,2015-16,2,Pullup Jump shot,Made
+125,257,Above the Break 3,Right Side Center(RC),24+ ft.,1,20151228,2015-16,2,Jump Shot,Made
+40,267,Above the Break 3,Center(C),24+ ft.,1,20151228,2015-16,2,Jump Shot,Made
+-4,46,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20151228,2015-16,3,Jump Shot,Missed
+-137,298,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151228,2015-16,3,Jump Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20151228,2015-16,3,Driving Dunk Shot,Made
+-66,252,Above the Break 3,Center(C),24+ ft.,0,20151228,2015-16,3,Jump Shot,Missed
+-143,244,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151228,2015-16,4,Jump Shot,Made
+-4,8,Restricted Area,Center(C),Less Than 8 ft.,1,20151228,2015-16,4,Driving Reverse Layup Shot,Made
+-17,16,Restricted Area,Center(C),Less Than 8 ft.,0,20151230,2015-16,1,Layup Shot,Missed
+10,301,Above the Break 3,Center(C),24+ ft.,0,20151230,2015-16,2,Jump Shot,Missed
+-27,16,Restricted Area,Center(C),Less Than 8 ft.,1,20151230,2015-16,2,Jump Shot,Made
+202,154,Above the Break 3,Right Side Center(RC),24+ ft.,0,20151230,2015-16,2,Jump Shot,Missed
+-197,178,Above the Break 3,Left Side Center(LC),24+ ft.,1,20151230,2015-16,3,Jump Shot,Made
+-55,278,Above the Break 3,Center(C),24+ ft.,0,20151230,2015-16,3,Jump Shot,Missed
+-19,21,Restricted Area,Center(C),Less Than 8 ft.,0,20151230,2015-16,3,Layup Shot,Missed
+233,21,Right Corner 3,Right Side(R),24+ ft.,1,20151230,2015-16,4,Jump Shot,Made
+-220,111,Above the Break 3,Left Side Center(LC),24+ ft.,0,20151230,2015-16,4,Jump Shot,Missed
+-232,13,Left Corner 3,Left Side(L),24+ ft.,0,20151230,2015-16,4,Jump Shot,Missed
+-68,259,Above the Break 3,Center(C),24+ ft.,1,20160102,2015-16,1,Jump Shot,Made
+-11,28,Restricted Area,Center(C),Less Than 8 ft.,0,20160102,2015-16,1,Jump Shot,Missed
+15,11,Restricted Area,Center(C),Less Than 8 ft.,1,20160102,2015-16,1,Tip Layup Shot,Made
+4,259,Above the Break 3,Center(C),24+ ft.,1,20160102,2015-16,1,Jump Shot,Made
+236,13,Right Corner 3,Right Side(R),24+ ft.,0,20160102,2015-16,2,Jump Shot,Missed
+182,175,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160102,2015-16,3,Jump Shot,Missed
+84,28,Mid-Range,Right Side(R),8-16 ft.,1,20160102,2015-16,3,Driving Bank shot,Made
+-20,9,Restricted Area,Center(C),Less Than 8 ft.,0,20160102,2015-16,3,Layup Shot,Missed
+132,237,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160113,2015-16,2,Jump Shot,Missed
+-238,38,Left Corner 3,Left Side(L),24+ ft.,0,20160113,2015-16,2,Jump Shot,Missed
+-2,28,Restricted Area,Center(C),Less Than 8 ft.,1,20160113,2015-16,3,Finger Roll Layup Shot,Made
+58,242,Above the Break 3,Center(C),24+ ft.,0,20160113,2015-16,3,Jump Shot,Missed
+-115,218,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160113,2015-16,3,Jump Shot,Missed
+-35,13,Restricted Area,Center(C),Less Than 8 ft.,1,20160113,2015-16,3,Layup Shot,Made
+64,262,Above the Break 3,Center(C),24+ ft.,0,20160113,2015-16,4,Jump Shot,Missed
+-9,257,Above the Break 3,Center(C),24+ ft.,1,20160113,2015-16,4,Jump Shot,Made
+17,21,Restricted Area,Center(C),Less Than 8 ft.,1,20160114,2015-16,1,Driving Layup Shot,Made
+17,16,Restricted Area,Center(C),Less Than 8 ft.,1,20160114,2015-16,2,Driving Finger Roll Layup Shot,Made
+-24,41,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160114,2015-16,2,Jump Shot,Missed
+-14,-1,Restricted Area,Center(C),Less Than 8 ft.,1,20160114,2015-16,2,Reverse Layup Shot,Made
+232,67,Right Corner 3,Right Side(R),24+ ft.,0,20160114,2015-16,2,Jump Shot,Missed
+-220,101,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160114,2015-16,4,Jump Shot,Made
+-240,-1,Left Corner 3,Left Side(L),24+ ft.,1,20160116,2015-16,1,Jump Shot,Made
+241,-11,Right Corner 3,Right Side(R),24+ ft.,0,20160116,2015-16,1,Jump Shot,Missed
+-158,208,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160116,2015-16,2,Jump Shot,Made
+227,26,Right Corner 3,Right Side(R),24+ ft.,1,20160116,2015-16,3,Jump Shot,Made
+-165,185,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160116,2015-16,4,Jump Shot,Made
+9,3,Restricted Area,Center(C),Less Than 8 ft.,1,20160116,2015-16,4,Cutting Layup Shot,Made
+146,200,Above the Break 3,Right Side Center(RC),24+ ft.,1,20160116,2015-16,4,Jump Shot,Made
+-169,223,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160116,2015-16,4,Jump Shot,Missed
+225,110,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160116,2015-16,4,Jump Shot,Missed
+97,242,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160120,2015-16,1,Jump Shot,Missed
+-53,28,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160120,2015-16,1,Jump Shot,Made
+-189,174,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160120,2015-16,2,Jump Shot,Missed
+46,272,Above the Break 3,Center(C),24+ ft.,0,20160120,2015-16,2,Jump Shot,Missed
+225,3,Right Corner 3,Right Side(R),24+ ft.,0,20160120,2015-16,2,Step Back Jump shot,Missed
+135,200,Above the Break 3,Right Side Center(RC),24+ ft.,1,20160120,2015-16,3,Jump Shot,Made
+148,-16,Mid-Range,Right Side(R),8-16 ft.,0,20160120,2015-16,3,Floating Jump shot,Missed
+-16,2,Restricted Area,Center(C),Less Than 8 ft.,0,20160120,2015-16,4,Layup Shot,Missed
+-17,-5,Restricted Area,Center(C),Less Than 8 ft.,1,20160120,2015-16,4,Driving Layup Shot,Made
+74,262,Above the Break 3,Center(C),24+ ft.,0,20160120,2015-16,4,Jump Shot,Missed
+223,-6,Right Corner 3,Right Side(R),24+ ft.,0,20160120,2015-16,4,Jump Shot,Missed
+-12,16,Restricted Area,Center(C),Less Than 8 ft.,1,20160121,2015-16,1,Cutting Layup Shot,Made
+97,232,Above the Break 3,Right Side Center(RC),24+ ft.,1,20160121,2015-16,1,Jump Shot,Made
+-184,169,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160121,2015-16,1,Jump Shot,Missed
+5,258,Above the Break 3,Center(C),24+ ft.,0,20160121,2015-16,2,Jump Shot,Missed
+-17,249,Above the Break 3,Center(C),24+ ft.,0,20160121,2015-16,2,Jump Shot,Missed
+82,13,Mid-Range,Right Side(R),8-16 ft.,0,20160121,2015-16,2,Jump Shot,Missed
+-5,29,Restricted Area,Center(C),Less Than 8 ft.,0,20160121,2015-16,3,Layup Shot,Missed
+-109,223,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160121,2015-16,3,Jump Shot,Made
+228,3,Right Corner 3,Right Side(R),24+ ft.,0,20160121,2015-16,3,Jump Shot,Missed
+-78,232,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160121,2015-16,4,Jump Shot,Made
+1,277,Above the Break 3,Center(C),24+ ft.,0,20160123,2015-16,1,Jump Shot,Missed
+-40,23,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160123,2015-16,1,Jump Shot,Made
+-166,183,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160123,2015-16,1,Jump Shot,Missed
+-11,8,Restricted Area,Center(C),Less Than 8 ft.,1,20160123,2015-16,1,Tip Layup Shot,Made
+-127,237,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160123,2015-16,2,Jump Shot,Missed
+1,65,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160123,2015-16,3,Hook Shot,Made
+30,7,Restricted Area,Center(C),Less Than 8 ft.,1,20160123,2015-16,3,Layup Shot,Made
+212,124,Above the Break 3,Right Side Center(RC),24+ ft.,1,20160125,2015-16,2,Jump Shot,Made
+-24,18,Restricted Area,Center(C),Less Than 8 ft.,0,20160125,2015-16,2,Jump Shot,Missed
+71,237,Above the Break 3,Center(C),24+ ft.,0,20160125,2015-16,3,Jump Shot,Missed
+213,124,Above the Break 3,Right Side Center(RC),24+ ft.,1,20160125,2015-16,3,Jump Shot,Made
+0,52,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160125,2015-16,4,Jump Shot,Missed
+-137,232,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160125,2015-16,4,Jump Shot,Missed
+-120,234,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160125,2015-16,4,Jump Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160125,2015-16,4,Cutting Dunk Shot,Made
+138,210,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160125,2015-16,5,Jump Shot,Missed
+138,208,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160125,2015-16,6,Jump Shot,Missed
+10,41,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160126,2015-16,1,Floating Jump shot,Missed
+20,244,Above the Break 3,Center(C),24+ ft.,0,20160126,2015-16,1,Jump Shot,Missed
+48,80,In The Paint (Non-RA),Right Side(R),8-16 ft.,1,20160126,2015-16,2,Driving Floating Jump Shot,Made
+109,214,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160126,2015-16,3,Jump Shot,Missed
+-73,3,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160126,2015-16,3,Floating Jump shot,Made
+-214,120,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160126,2015-16,3,Jump Shot,Made
+-120,218,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160126,2015-16,4,Jump Shot,Made
+-230,0,Left Corner 3,Left Side(L),24+ ft.,1,20160128,2015-16,1,Jump Shot,Made
+-11,3,Restricted Area,Center(C),Less Than 8 ft.,1,20160128,2015-16,1,Cutting Layup Shot,Made
+199,156,Above the Break 3,Right Side Center(RC),24+ ft.,1,20160128,2015-16,1,Jump Shot,Made
+14,7,Restricted Area,Center(C),Less Than 8 ft.,0,20160128,2015-16,1,Layup Shot,Missed
+171,237,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160128,2015-16,1,Jump Shot,Missed
+14,7,Restricted Area,Center(C),Less Than 8 ft.,0,20160128,2015-16,3,Layup Shot,Missed
+62,10,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160128,2015-16,3,Jump Shot,Missed
+217,115,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160128,2015-16,3,Jump Shot,Missed
+63,247,Above the Break 3,Center(C),24+ ft.,0,20160128,2015-16,4,Jump Shot,Missed
+228,97,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160130,2015-16,1,Jump Shot,Missed
+-117,232,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160130,2015-16,2,Jump Shot,Missed
+-63,239,Above the Break 3,Center(C),24+ ft.,0,20160130,2015-16,2,Step Back Jump shot,Missed
+143,210,Above the Break 3,Right Side Center(RC),24+ ft.,1,20160130,2015-16,3,Jump Shot,Made
+14,-1,Restricted Area,Center(C),Less Than 8 ft.,1,20160130,2015-16,3,Layup Shot,Made
+-1,2,Restricted Area,Center(C),Less Than 8 ft.,1,20160130,2015-16,3,Putback Layup Shot,Made
+17,2,Restricted Area,Center(C),Less Than 8 ft.,0,20160130,2015-16,3,Tip Layup Shot,Missed
+-5,5,Restricted Area,Center(C),Less Than 8 ft.,1,20160130,2015-16,4,Driving Floating Jump Shot,Made
+25,244,Above the Break 3,Center(C),24+ ft.,1,20160130,2015-16,4,Jump Shot,Made
+24,242,Above the Break 3,Center(C),24+ ft.,0,20160130,2015-16,4,Jump Shot,Missed
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160130,2015-16,4,Running Dunk Shot,Made
+123,234,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160130,2015-16,4,Jump Shot,Missed
+-27,46,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160201,2015-16,1,Jump Shot,Missed
+109,242,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160201,2015-16,1,Jump Shot,Missed
+37,67,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160201,2015-16,2,Floating Jump shot,Missed
+32,51,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160201,2015-16,2,Driving Floating Bank Jump Shot,Made
+17,77,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160201,2015-16,2,Floating Jump shot,Made
+12,41,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160201,2015-16,3,Jump Shot,Missed
+-122,242,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160201,2015-16,4,Jump Shot,Missed
+-79,244,Above the Break 3,Center(C),24+ ft.,0,20160201,2015-16,4,Jump Shot,Missed
+-168,203,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160201,2015-16,4,Jump Shot,Made
+9,85,In The Paint (Non-RA),Center(C),8-16 ft.,1,20160203,2015-16,1,Jump Shot,Made
+120,219,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160203,2015-16,2,Jump Shot,Missed
+0,254,Above the Break 3,Center(C),24+ ft.,1,20160203,2015-16,2,Jump Shot,Made
+-68,13,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160203,2015-16,2,Jump Shot,Made
+-47,208,Mid-Range,Center(C),16-24 ft.,0,20160203,2015-16,3,Jump Shot,Missed
+-17,31,Restricted Area,Center(C),Less Than 8 ft.,0,20160203,2015-16,3,Cutting Layup Shot,Missed
+-112,228,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160203,2015-16,4,Jump Shot,Made
+-16,-10,Restricted Area,Center(C),Less Than 8 ft.,1,20160205,2015-16,1,Layup Shot,Made
+1,242,Above the Break 3,Center(C),24+ ft.,0,20160205,2015-16,1,Jump Shot,Missed
+148,195,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160205,2015-16,1,Jump Shot,Missed
+-7,67,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160205,2015-16,1,Floating Jump shot,Missed
+222,72,Right Corner 3,Right Side(R),24+ ft.,0,20160205,2015-16,1,Step Back Jump shot,Missed
+-60,244,Above the Break 3,Center(C),24+ ft.,1,20160205,2015-16,2,Jump Shot,Made
+-245,-5,Left Corner 3,Left Side(L),24+ ft.,0,20160205,2015-16,3,Jump Shot,Missed
+-196,169,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160205,2015-16,3,Pullup Jump shot,Missed
+-14,11,Restricted Area,Center(C),Less Than 8 ft.,1,20160205,2015-16,4,Driving Layup Shot,Made
+-6,247,Above the Break 3,Center(C),24+ ft.,0,20160205,2015-16,4,Jump Shot,Missed
+24,-1,Restricted Area,Center(C),Less Than 8 ft.,1,20160207,2015-16,1,Driving Finger Roll Layup Shot,Made
+10,11,Restricted Area,Center(C),Less Than 8 ft.,1,20160207,2015-16,1,Driving Finger Roll Layup Shot,Made
+24,26,Restricted Area,Center(C),Less Than 8 ft.,1,20160207,2015-16,1,Turnaround Jump Shot,Made
+-101,229,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160207,2015-16,2,Jump Shot,Missed
+71,77,In The Paint (Non-RA),Right Side(R),8-16 ft.,0,20160207,2015-16,2,Turnaround Jump Shot,Missed
+4,21,Restricted Area,Center(C),Less Than 8 ft.,1,20160207,2015-16,2,Running Finger Roll Layup Shot,Made
+119,232,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160207,2015-16,2,Jump Shot,Missed
+-14,-1,Restricted Area,Center(C),Less Than 8 ft.,0,20160207,2015-16,2,Driving Finger Roll Layup Shot,Missed
+-25,7,Restricted Area,Center(C),Less Than 8 ft.,0,20160207,2015-16,3,Driving Layup Shot,Missed
+-29,2,Restricted Area,Center(C),Less Than 8 ft.,0,20160207,2015-16,4,Layup Shot,Missed
+-19,2,Restricted Area,Center(C),Less Than 8 ft.,0,20160207,2015-16,4,Running Layup Shot,Missed
+15,2,Restricted Area,Center(C),Less Than 8 ft.,1,20160207,2015-16,4,Driving Finger Roll Layup Shot,Made
+-176,218,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160207,2015-16,4,Jump Shot,Missed
+-147,203,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160207,2015-16,4,Jump Shot,Missed
+-235,3,Left Corner 3,Left Side(L),24+ ft.,1,20160207,2015-16,4,Jump Shot,Made
+130,213,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160207,2015-16,4,Jump Shot,Missed
+-9,28,Restricted Area,Center(C),Less Than 8 ft.,0,20160208,2015-16,1,Driving Layup Shot,Missed
+-17,11,Restricted Area,Center(C),Less Than 8 ft.,0,20160208,2015-16,1,Layup Shot,Missed
+9,47,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160208,2015-16,1,Jump Shot,Missed
+-163,210,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160208,2015-16,2,Jump Shot,Missed
+163,242,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160208,2015-16,2,Jump Shot,Missed
+-155,203,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160208,2015-16,3,Jump Shot,Made
+4,262,Above the Break 3,Center(C),24+ ft.,1,20160208,2015-16,3,Jump Shot,Made
+120,208,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160208,2015-16,3,Jump Shot,Missed
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160208,2015-16,4,Running Dunk Shot,Made
+12,31,Restricted Area,Center(C),Less Than 8 ft.,1,20160208,2015-16,4,Driving Layup Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160208,2015-16,4,Running Dunk Shot,Made
+-9,2,Restricted Area,Center(C),Less Than 8 ft.,0,20160208,2015-16,4,Driving Layup Shot,Missed
+9,47,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160210,2015-16,1,Jump Shot,Missed
+2,47,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160210,2015-16,3,Jump Shot,Missed
+-4,16,Restricted Area,Center(C),Less Than 8 ft.,1,20160210,2015-16,3,Driving Layup Shot,Made
+156,210,Above the Break 3,Right Side Center(RC),24+ ft.,1,20160223,2015-16,1,Jump Shot,Made
+-183,183,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160223,2015-16,1,Jump Shot,Missed
+-178,195,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160223,2015-16,1,Jump Shot,Made
+-140,218,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160223,2015-16,2,Jump Shot,Missed
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160223,2015-16,2,Running Dunk Shot,Made
+-25,11,Restricted Area,Center(C),Less Than 8 ft.,1,20160223,2015-16,4,Putback Layup Shot,Made
+2,26,Restricted Area,Center(C),Less Than 8 ft.,0,20160224,2015-16,2,Layup Shot,Missed
+-11,26,Restricted Area,Center(C),Less Than 8 ft.,0,20160224,2015-16,2,Layup Shot,Missed
+-210,141,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160224,2015-16,2,Jump Shot,Made
+0,267,Above the Break 3,Center(C),24+ ft.,0,20160224,2015-16,2,Jump Shot,Missed
+2,16,Restricted Area,Center(C),Less Than 8 ft.,0,20160224,2015-16,2,Layup Shot,Missed
+25,3,Restricted Area,Center(C),Less Than 8 ft.,0,20160224,2015-16,2,Layup Shot,Missed
+-94,239,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160226,2015-16,1,Jump Shot,Missed
+-25,43,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160226,2015-16,1,Jump Shot,Missed
+-178,168,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160226,2015-16,2,Jump Shot,Missed
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160226,2015-16,2,Dunk Shot,Made
+-217,151,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160226,2015-16,3,Jump Shot,Missed
+-11,36,Restricted Area,Center(C),Less Than 8 ft.,1,20160226,2015-16,4,Driving Layup Shot,Made
+33,14,Restricted Area,Center(C),Less Than 8 ft.,0,20160226,2015-16,4,Jump Shot,Missed
+-24,26,Restricted Area,Center(C),Less Than 8 ft.,1,20160226,2015-16,4,Layup Shot,Made
+-30,41,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160226,2015-16,4,Finger Roll Layup Shot,Missed
+230,21,Right Corner 3,Right Side(R),24+ ft.,0,20160229,2015-16,1,Jump Shot,Missed
+-1,26,Restricted Area,Center(C),Less Than 8 ft.,1,20160229,2015-16,2,Driving Layup Shot,Made
+228,26,Right Corner 3,Right Side(R),24+ ft.,1,20160229,2015-16,3,Jump Shot,Made
+20,21,Restricted Area,Center(C),Less Than 8 ft.,1,20160229,2015-16,3,Layup Shot,Made
+94,232,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160229,2015-16,3,Jump Shot,Missed
+-1,100,In The Paint (Non-RA),Center(C),8-16 ft.,1,20160229,2015-16,3,Driving Floating Jump Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160229,2015-16,3,Dunk Shot,Made
+-189,169,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160229,2015-16,3,Jump Shot,Missed
+-137,229,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160229,2015-16,4,Jump Shot,Made
+-4,16,Restricted Area,Center(C),Less Than 8 ft.,1,20160229,2015-16,4,Tip Layup Shot,Made
+63,0,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160302,2015-16,1,Jump Shot,Missed
+-19,11,Restricted Area,Center(C),Less Than 8 ft.,1,20160302,2015-16,1,Running Layup Shot,Made
+-227,31,Left Corner 3,Left Side(L),24+ ft.,0,20160302,2015-16,1,Jump Shot,Missed
+-16,2,Restricted Area,Center(C),Less Than 8 ft.,1,20160302,2015-16,2,Driving Layup Shot,Made
+-220,90,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160302,2015-16,2,Jump Shot,Missed
+232,-1,Right Corner 3,Right Side(R),24+ ft.,1,20160302,2015-16,2,Jump Shot,Made
+-25,7,Restricted Area,Center(C),Less Than 8 ft.,1,20160302,2015-16,3,Running Layup Shot,Made
+-228,46,Left Corner 3,Left Side(L),24+ ft.,0,20160303,2015-16,1,Jump Shot,Missed
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160303,2015-16,2,Running Dunk Shot,Made
+143,224,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160303,2015-16,2,Jump Shot,Missed
+230,62,Right Corner 3,Right Side(R),24+ ft.,0,20160303,2015-16,2,Jump Shot,Missed
+186,174,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160303,2015-16,3,Jump Shot,Missed
+217,134,Above the Break 3,Right Side Center(RC),24+ ft.,1,20160303,2015-16,4,Jump Shot,Made
+-66,18,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160303,2015-16,4,Jump Shot,Made
+-79,262,Above the Break 3,Center(C),24+ ft.,0,20160303,2015-16,4,Step Back Jump shot,Missed
+228,18,Right Corner 3,Right Side(R),24+ ft.,0,20160305,2015-16,1,Jump Shot,Missed
+110,214,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160305,2015-16,2,Jump Shot,Missed
+110,41,Mid-Range,Right Side(R),8-16 ft.,0,20160305,2015-16,2,Floating Jump shot,Missed
+153,188,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160305,2015-16,3,Jump Shot,Missed
+-61,21,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160305,2015-16,3,Floating Jump shot,Made
+-1,56,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160305,2015-16,3,Floating Jump shot,Missed
+-4,21,Restricted Area,Center(C),Less Than 8 ft.,0,20160305,2015-16,3,Tip Layup Shot,Missed
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160305,2015-16,3,Running Dunk Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160305,2015-16,4,Running Dunk Shot,Made
+227,51,Right Corner 3,Right Side(R),24+ ft.,0,20160305,2015-16,4,Jump Shot,Missed
+6,21,Restricted Area,Center(C),Less Than 8 ft.,1,20160307,2015-16,1,Putback Layup Shot,Made
+-58,247,Above the Break 3,Center(C),24+ ft.,0,20160307,2015-16,1,Jump Shot,Missed
+32,14,Restricted Area,Center(C),Less Than 8 ft.,1,20160307,2015-16,2,Driving Layup Shot,Made
+122,224,Above the Break 3,Right Side Center(RC),24+ ft.,1,20160307,2015-16,3,Jump Shot,Made
+25,90,In The Paint (Non-RA),Center(C),8-16 ft.,1,20160307,2015-16,3,Floating Jump shot,Made
+-2,257,Above the Break 3,Center(C),24+ ft.,0,20160307,2015-16,3,Jump Shot,Missed
+9,16,Restricted Area,Center(C),Less Than 8 ft.,1,20160309,2015-16,2,Driving Layup Shot,Made
+241,7,Right Corner 3,Right Side(R),24+ ft.,0,20160309,2015-16,2,Jump Shot,Missed
+-84,23,Mid-Range,Left Side(L),8-16 ft.,1,20160309,2015-16,2,Turnaround Jump Shot,Made
+66,26,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160309,2015-16,3,Driving Floating Bank Jump Shot,Made
+4,61,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160309,2015-16,3,Driving Floating Jump Shot,Made
+-12,61,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160309,2015-16,3,Floating Jump shot,Missed
+-1,26,Restricted Area,Center(C),Less Than 8 ft.,1,20160309,2015-16,4,Driving Finger Roll Layup Shot,Made
+-187,188,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160309,2015-16,4,Jump Shot,Made
+40,13,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160309,2015-16,4,Running Jump Shot,Missed
+46,77,In The Paint (Non-RA),Right Side(R),8-16 ft.,0,20160311,2015-16,1,Floating Jump shot,Missed
+-30,7,Restricted Area,Center(C),Less Than 8 ft.,0,20160311,2015-16,1,Layup Shot,Missed
+60,242,Above the Break 3,Center(C),24+ ft.,0,20160311,2015-16,1,Jump Shot,Missed
+19,11,Restricted Area,Center(C),Less Than 8 ft.,1,20160311,2015-16,2,Layup Shot,Made
+27,23,Restricted Area,Center(C),Less Than 8 ft.,0,20160311,2015-16,2,Driving Layup Shot,Missed
+-99,229,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160311,2015-16,2,Jump Shot,Made
+-186,169,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160311,2015-16,3,Jump Shot,Missed
+119,3,Mid-Range,Right Side(R),8-16 ft.,0,20160311,2015-16,3,Jump Shot,Missed
+223,26,Right Corner 3,Right Side(R),24+ ft.,0,20160311,2015-16,3,Jump Shot,Missed
+24,26,Restricted Area,Center(C),Less Than 8 ft.,0,20160311,2015-16,3,Jump Shot,Missed
+22,33,Restricted Area,Center(C),Less Than 8 ft.,0,20160311,2015-16,4,Driving Layup Shot,Missed
+37,82,In The Paint (Non-RA),Center(C),8-16 ft.,1,20160311,2015-16,4,Floating Jump shot,Made
+28,56,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160311,2015-16,4,Jump Shot,Missed
+240,26,Right Corner 3,Right Side(R),24+ ft.,1,20160313,2015-16,1,Jump Shot,Made
+27,11,Restricted Area,Center(C),Less Than 8 ft.,1,20160313,2015-16,2,Driving Layup Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160313,2015-16,2,Running Dunk Shot,Made
+-37,82,In The Paint (Non-RA),Center(C),8-16 ft.,0,20160313,2015-16,2,Jump Shot,Missed
+238,26,Right Corner 3,Right Side(R),24+ ft.,1,20160313,2015-16,2,Jump Shot,Made
+9,41,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160313,2015-16,3,Cutting Layup Shot,Made
+-48,31,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160313,2015-16,3,Jump Shot,Missed
+-11,11,Restricted Area,Center(C),Less Than 8 ft.,1,20160313,2015-16,3,Layup Shot,Made
+22,273,Above the Break 3,Center(C),24+ ft.,1,20160313,2015-16,3,Jump Shot,Made
+24,80,In The Paint (Non-RA),Center(C),8-16 ft.,0,20160313,2015-16,4,Turnaround Jump Shot,Missed
+-40,90,In The Paint (Non-RA),Center(C),8-16 ft.,0,20160313,2015-16,4,Jump Shot,Missed
+4,287,Above the Break 3,Center(C),24+ ft.,1,20160313,2015-16,4,Jump Shot,Made
+14,36,Restricted Area,Center(C),Less Than 8 ft.,1,20160315,2015-16,1,Driving Floating Jump Shot,Made
+107,232,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160315,2015-16,1,Jump Shot,Missed
+-2,3,Restricted Area,Center(C),Less Than 8 ft.,1,20160315,2015-16,1,Layup Shot,Made
+-4,75,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160315,2015-16,2,Floating Jump shot,Missed
+143,205,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160315,2015-16,2,Step Back Jump shot,Missed
+14,75,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160315,2015-16,4,Floating Jump shot,Missed
+-9,57,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160315,2015-16,4,Hook Shot,Missed
+-7,8,Restricted Area,Center(C),Less Than 8 ft.,1,20160315,2015-16,4,Driving Finger Roll Layup Shot,Made
+117,232,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160315,2015-16,4,Jump Shot,Missed
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160315,2015-16,4,Running Dunk Shot,Made
+-20,3,Restricted Area,Center(C),Less Than 8 ft.,0,20160315,2015-16,4,Cutting Layup Shot,Missed
+-42,249,Above the Break 3,Center(C),24+ ft.,1,20160316,2015-16,2,Jump Shot,Made
+-24,82,In The Paint (Non-RA),Center(C),8-16 ft.,0,20160316,2015-16,2,Running Jump Shot,Missed
+74,52,In The Paint (Non-RA),Right Side(R),8-16 ft.,0,20160316,2015-16,2,Jump Shot,Missed
+15,49,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160316,2015-16,2,Floating Jump shot,Missed
+25,16,Restricted Area,Center(C),Less Than 8 ft.,1,20160316,2015-16,2,Driving Layup Shot,Made
+122,228,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160316,2015-16,2,Jump Shot,Missed
+86,7,Mid-Range,Right Side(R),8-16 ft.,0,20160316,2015-16,3,Jump Shot,Missed
+78,16,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160316,2015-16,4,Running Jump Shot,Missed
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160316,2015-16,4,Cutting Dunk Shot,Made
+140,213,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160316,2015-16,4,Jump Shot,Missed
+-192,154,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160316,2015-16,4,Step Back Jump shot,Made
+-20,26,Restricted Area,Center(C),Less Than 8 ft.,1,20160316,2015-16,4,Layup Shot,Made
+-235,-29,Left Corner 3,Left Side(L),24+ ft.,1,20160320,2015-16,1,Jump Shot,Made
+-6,46,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160320,2015-16,2,Hook Shot,Made
+2,7,Restricted Area,Center(C),Less Than 8 ft.,1,20160320,2015-16,2,Tip Layup Shot,Made
+182,183,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160320,2015-16,2,Jump Shot,Missed
+14,2,Restricted Area,Center(C),Less Than 8 ft.,0,20160320,2015-16,3,Layup Shot,Missed
+107,234,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160320,2015-16,3,Jump Shot,Missed
+9,7,Restricted Area,Center(C),Less Than 8 ft.,1,20160320,2015-16,4,Layup Shot,Made
+-43,26,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160320,2015-16,4,Running Jump Shot,Made
+127,228,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160320,2015-16,4,Jump Shot,Missed
+-2,13,Restricted Area,Center(C),Less Than 8 ft.,0,20160321,2015-16,1,Driving Layup Shot,Missed
+-151,205,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160321,2015-16,2,Jump Shot,Missed
+-160,200,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160321,2015-16,2,Jump Shot,Made
+-1,13,Restricted Area,Center(C),Less Than 8 ft.,0,20160321,2015-16,3,Tip Layup Shot,Missed
+104,16,Mid-Range,Right Side(R),8-16 ft.,1,20160321,2015-16,4,Jump Shot,Made
+161,178,Above the Break 3,Right Side Center(RC),24+ ft.,0,20160321,2015-16,4,Jump Shot,Missed
+119,213,Above the Break 3,Right Side Center(RC),24+ ft.,1,20160323,2015-16,1,Jump Shot,Made
+-37,7,Restricted Area,Center(C),Less Than 8 ft.,0,20160323,2015-16,1,Finger Roll Layup Shot,Missed
+236,65,Right Corner 3,Right Side(R),24+ ft.,0,20160323,2015-16,2,Jump Shot,Missed
+15,13,Restricted Area,Center(C),Less Than 8 ft.,1,20160323,2015-16,2,Cutting Layup Shot,Made
+9,52,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160323,2015-16,2,Jump Shot,Made
+42,116,In The Paint (Non-RA),Center(C),8-16 ft.,1,20160323,2015-16,3,Hook Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,0,20160323,2015-16,4,Dunk Shot,Missed
+-38,43,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160323,2015-16,4,Jump Shot,Missed
+30,21,Restricted Area,Center(C),Less Than 8 ft.,0,20160323,2015-16,4,Jump Shot,Missed
+-25,13,Restricted Area,Center(C),Less Than 8 ft.,0,20160325,2015-16,2,Driving Layup Shot,Missed
+45,51,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160325,2015-16,2,Driving Floating Jump Shot,Missed
+12,61,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160325,2015-16,4,Running Jump Shot,Missed
+20,62,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160325,2015-16,4,Floating Jump shot,Missed
+40,19,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160325,2015-16,4,Driving Layup Shot,Missed
+-71,242,Above the Break 3,Center(C),24+ ft.,0,20160325,2015-16,4,Jump Shot,Missed
+22,21,Restricted Area,Center(C),Less Than 8 ft.,1,20160325,2015-16,4,Tip Layup Shot,Made
+74,252,Above the Break 3,Center(C),24+ ft.,1,20160327,2015-16,1,Jump Shot,Made
+44,9,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160327,2015-16,2,Driving Layup Shot,Made
+12,7,Restricted Area,Center(C),Less Than 8 ft.,0,20160327,2015-16,3,Layup Shot,Missed
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160327,2015-16,3,Running Dunk Shot,Made
+15,67,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20160327,2015-16,4,Floating Jump shot,Made
+4,11,Restricted Area,Center(C),Less Than 8 ft.,1,20160328,2015-16,1,Running Layup Shot,Made
+12,11,Restricted Area,Center(C),Less Than 8 ft.,0,20160328,2015-16,1,Layup Shot,Missed
+24,7,Restricted Area,Center(C),Less Than 8 ft.,0,20160328,2015-16,1,Running Layup Shot,Missed
+-27,-1,Restricted Area,Center(C),Less Than 8 ft.,1,20160328,2015-16,1,Driving Reverse Layup Shot,Made
+40,267,Above the Break 3,Center(C),24+ ft.,1,20160328,2015-16,1,Jump Shot,Made
+-25,8,Restricted Area,Center(C),Less Than 8 ft.,0,20160328,2015-16,2,Driving Layup Shot,Missed
+-96,234,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160328,2015-16,2,Jump Shot,Made
+-9,95,In The Paint (Non-RA),Center(C),8-16 ft.,0,20160328,2015-16,2,Turnaround Jump Shot,Missed
+-184,178,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160328,2015-16,2,Jump Shot,Missed
+19,8,Restricted Area,Center(C),Less Than 8 ft.,0,20160328,2015-16,4,Layup Shot,Missed
+-38,31,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160328,2015-16,4,Floating Jump shot,Missed
+-40,21,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160328,2015-16,4,Floating Jump shot,Missed
+9,7,Restricted Area,Center(C),Less Than 8 ft.,1,20160328,2015-16,4,Layup Shot,Made
+-32,2,Restricted Area,Center(C),Less Than 8 ft.,1,20160328,2015-16,4,Driving Finger Roll Layup Shot,Made
+-92,232,Above the Break 3,Left Side Center(LC),24+ ft.,1,20160330,2015-16,2,Jump Shot,Made
+0,1,Restricted Area,Center(C),Less Than 8 ft.,1,20160330,2015-16,2,Dunk Shot,Made
+87,115,Mid-Range,Right Side(R),8-16 ft.,0,20160330,2015-16,3,Jump Shot,Missed
+-25,16,Restricted Area,Center(C),Less Than 8 ft.,1,20160330,2015-16,3,Cutting Layup Shot,Made
+-150,213,Above the Break 3,Left Side Center(LC),24+ ft.,0,20160330,2015-16,3,Jump Shot,Missed
+-10,0,Restricted Area,Center(C),Less Than 8 ft.,1,20160330,2015-16,4,Tip Layup Shot,Made
+-17,11,Restricted Area,Center(C),Less Than 8 ft.,1,20160330,2015-16,4,Reverse Layup Shot,Made
+-24,16,Restricted Area,Center(C),Less Than 8 ft.,1,20160401,2015-16,2,Driving Layup Shot,Made
+10,8,Restricted Area,Center(C),Less Than 8 ft.,0,20160401,2015-16,2,Tip Layup Shot,Missed
+9,61,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20160401,2015-16,2,Running Jump Shot,Missed
