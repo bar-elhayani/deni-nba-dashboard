@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import base64
+import pandas as pd
 from data_loader import load_csv
 from components.shot_map import render_shot_map
 from components.player_compare import render_player_compare
@@ -10,69 +11,61 @@ from components.deni_labron_casspi import render_deni_labron_casspi
 import streamlit.components.v1 as components
 
 DENI_ID = 1630166
-# -----------------------------
-# Manual last 5 games (update by editing this list)
-# -----------------------------
-DENI_LAST_5_GAMES = [
-    {
-        "date": "10.01",
-        "home": "Portland Trail Blazers",
-        "away": "Houston Rockets",
-        "home_score": 111,
-        "away_score": 105,
-        "deni_pts": 20,
-    },
-    {
-        "date": "08.01",
-        "home": "Portland Trail Blazers",
-        "away": "Houston Rockets",
-        "home_score": 103,
-        "away_score": 102,
-        "deni_pts": 41,
-    },
-    {
-        "date": "06.01",
-        "home": "Portland Trail Blazers",
-        "away": "Utah Jazz",
-        "home_score": 137,
-        "away_score": 117,
-        "deni_pts": 33,
-    },
-    {
-        "date": "04.01",
-        "home": "San Antonio Spurs",
-        "away": "Portland Trail Blazers",
-        "home_score": 110,
-        "away_score": 115,
-        "deni_pts": 29,
-    },
-    {
-        "date": "03.01",
-        "home": "New Orleans Pelicans",
-        "away": "Portland Trail Blazers",
-        "home_score": 109,
-        "away_score": 122,
-        "deni_pts": 34,
-    },
-]
+
 
 def img_to_base64(path: str) -> str:
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode("utf-8")
+
+
 TEAM_LOGO_PATHS = {
     "POR": os.path.join("data", "images", "trailblazers_logo.png"),
 }
 
-def portland_result_emoji(home: str, away: str, home_score: int, away_score: int) -> str:
+
+def wl_to_emoji(wl: str) -> str:
     """
-    Return 🟢 if Portland won, 🔴 if Portland lost, 🏀 if not determinable.
+    WL column: 'W' / 'L'
     """
-    portland = "Portland Trail Blazers"
-    if home == portland:
-        return "🟢" if home_score > away_score else "🔴"
-    if away == portland:
-        return "🟢" if away_score > home_score else "🔴"
+    s = str(wl).strip().upper()
+    if s == "W":
+        return "🟢"
+    if s == "L":
+        return "🔴"
     return "🏀"
+
+
+def _safe_int(val, default=None):
+    try:
+        if pd.isna(val):
+            return default
+        return int(val)
+    except Exception:
+        return default
+
+
+def get_last_5_games_from_gamelog(gamelog_df: pd.DataFrame, season: str = "2025-26") -> pd.DataFrame:
+    """
+    Returns last 5 games (most recent) for the given season, based on GAME_DATE.
+    """
+    if gamelog_df is None or gamelog_df.empty:
+        return pd.DataFrame()
+
+    df = gamelog_df.copy()
+
+    if "SEASON" not in df.columns or "GAME_DATE" not in df.columns:
+        return pd.DataFrame()
+
+    df = df[df["SEASON"].astype(str).str.strip() == season].copy()
+    if df.empty:
+        return pd.DataFrame()
+
+    # GAME_DATE is like: "Oct 26, 2025"
+    df["GAME_DATE_DT"] = pd.to_datetime(df["GAME_DATE"], errors="coerce")
+
+    df = df.dropna(subset=["GAME_DATE_DT"]).sort_values("GAME_DATE_DT", ascending=False).head(5)
+
+    return df
 
 
 st.set_page_config(
@@ -119,10 +112,13 @@ def load_all_data():
     deni_lebron_compare = load_csv("deni_lebron_year6_compare.csv")
     deni_casspi_compare = load_csv("deni_casspi_career_compare.csv")
 
-    return deni_shots, base, adv, lebron_shots, casspi_shots, deni_lebron_compare, deni_casspi_compare
+    # NEW: game log (all seasons)
+    deni_gamelog = load_csv("deni_avdija_all_seasons_gamelog.csv")
+
+    return deni_shots, base, adv, lebron_shots, casspi_shots, deni_lebron_compare, deni_casspi_compare, deni_gamelog
 
 
-deni_shots, base, adv, lebron_shots, casspi_shots, deni_lebron_compare, deni_casspi_compare = load_all_data()
+deni_shots, base, adv, lebron_shots, casspi_shots, deni_lebron_compare, deni_casspi_compare, deni_gamelog = load_all_data()
 
 st.sidebar.header("Navigation")
 page = st.sidebar.radio(
@@ -214,8 +210,8 @@ if page == "Home":
                             width: 100%;
                             height: auto;
                             border-radius: 14px;
-                            background: transparent;   /* IMPORTANT: no different tint */
-                            padding: 0;               /* IMPORTANT: no extra box */
+                            background: transparent;
+                            padding: 0;
                             filter: drop-shadow(0 10px 24px rgba(0,0,0,0.25));
                         "
                     />
@@ -241,19 +237,40 @@ if page == "Home":
         unsafe_allow_html=True
     )
 
-    for g in DENI_LAST_5_GAMES:
-        emoji = portland_result_emoji(
-            g["home"], g["away"], g["home_score"], g["away_score"]
-        )
+    last5_df = get_last_5_games_from_gamelog(deni_gamelog, season="2025-26")
+
+    if last5_df.empty:
         st.markdown(
-            f"""{emoji} <strong>{g['date']}</strong> — 
-    <strong>{g['home']} {g['home_score']} – {g['away_score']} {g['away']}</strong>  
-    Deni: <strong>{g['deni_pts']} pts</strong><br><br>""",
+            "<em>No games found for season 2025-26 in deni_avdija_all_seasons_gamelog.</em><br><br>",
             unsafe_allow_html=True
         )
+    else:
+        for _, row in last5_df.iterrows():
+            emoji = wl_to_emoji(row.get("WL"))
+            dt = row.get("GAME_DATE_DT")
+            date_str = dt.strftime("%d.%m") if isinstance(dt, pd.Timestamp) else str(row.get("GAME_DATE", "")).strip()
+
+            raw_matchup = str(row.get("MATCHUP", "")).strip()
+
+            # Always show VS
+            matchup = (
+                raw_matchup
+                .replace("@", "vs.")
+                .replace("VS.", "vs.")
+                .replace("VS", "vs.")
+            )
+            pts = _safe_int(row.get("PTS"), default=None)
+
+            pts_str = f"{pts} pts" if pts is not None else "— pts"
+
+            st.markdown(
+                f"""{emoji} <strong>{date_str}</strong> — 
+            <strong>{matchup}</strong>  
+            Deni: <strong>{pts_str}</strong><br><br>""",
+                unsafe_allow_html=True
+            )
 
     st.markdown("</div>", unsafe_allow_html=True)
-
 
 
 elif page == "Shot Locations":
