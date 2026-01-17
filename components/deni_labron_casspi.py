@@ -1097,10 +1097,9 @@ def render_deni_labron_casspi(
             row=deni_row,
             id_fallback_name="deni avdija",
             rankings_lookup=deni_rank_lookup,
-            season_override=DENI_CANONICAL_SEASON,  # "2025-26"
+            season_override=DENI_CANONICAL_SEASON,
         )
 
-    # meta for the other player (fallback to chosen season if missing in row)
     other_meta = _meta_line(other_row)
     if not other_meta:
         other_meta = other_default_seasons[0]
@@ -1108,12 +1107,27 @@ def render_deni_labron_casspi(
     with c_right:
         _render_compact_profile_card(
             player_name=other_name,
-            meta=other_meta,  # <-- changed
+            meta=other_meta,
             row=other_row,
             id_fallback_name=other_id_fallback,
             rankings_lookup=other_rank_lookup,
-            season_override=other_default_seasons[0],  # "2015-16" or "2008-09"
+            season_override=other_default_seasons[0],
         )
+
+    # ===== TORNADO (FULL WIDTH) =====
+    view_mode = st.selectbox(
+        "Tornado view",
+        ["Mirror", "Grouped"],
+        index=0,
+        key=f"tornado_view_mode_{mode}",
+    )
+
+    metrics_df = _build_metrics_table(deni_row, other_row)
+
+    if view_mode == "Mirror":
+        _render_tornado_mirror_chart(metrics_df, deni_name, other_name)
+    else:
+        _render_tornado_grouped_chart(metrics_df, deni_name, other_name)
 
     # ===== SHOT CHARTS =====
     s_left, s_right = st.columns(2)
@@ -1126,20 +1140,3 @@ def render_deni_labron_casspi(
         st.caption(other_caption)
         other_filtered = _filter_shots_by_seasons(other_shots, other_default_seasons)
         st.plotly_chart(_make_shot_scatter(other_filtered), width="stretch")
-
-    # ===== TORNADO =====
-    c_sel, c_sp = st.columns([1, 5])  # tweak ratios
-    with c_sel:
-        view_mode = st.selectbox(
-            "Tornado view",
-            ["Mirror", "Grouped"],
-            index=0,
-            key="tornado_view_mode",
-        )
-
-    metrics_df = _build_metrics_table(deni_row, other_row)
-
-    if view_mode == "Mirror":
-        _render_tornado_mirror_chart(metrics_df, deni_name, other_name)
-    else:
-        _render_tornado_grouped_chart(metrics_df, deni_name, other_name)

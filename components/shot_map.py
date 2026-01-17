@@ -336,7 +336,10 @@ def make_hex_map(full_hex: pd.DataFrame) -> go.Figure:
                     title="FGM (Makes)",
                     tickmode="array",
                     tickvals=list(range(0, max_bin + 1)),
-                    ticktext=bin_labels
+                    ticktext=bin_labels,
+                    x=0.75,
+                    thickness=18,
+                    len=0.70,
                 ),
                 line=dict(width=1.2, color="rgba(20,20,20,0.75)"),
                 opacity=1.0
@@ -468,7 +471,13 @@ def make_zone_map(f: pd.DataFrame, selected_zone: str | None = None) -> tuple[go
                 cmin=fg_min,
                 cmax=fg_max,
                 colorscale=colorscale,
-                colorbar=dict(title="FG% (Zone)", tickformat=".0%"),
+                colorbar=dict(
+                    title="FG% (Zone)",
+                    tickformat=".0%",
+                    x=0.75,
+                    thickness=18,
+                    len=0.70,
+                ),
             ),
             hoverinfo="skip",
             showlegend=False,
@@ -658,6 +667,61 @@ def _add_wood_background_percent_only(fig: go.Figure, x0=-250, x1=250, y0=-50, y
         fig.update_layout(plot_bgcolor="rgb(235,214,177)", paper_bgcolor="rgb(235,214,177)")
 
 
+def add_discrete_percent_legend(
+    fig: go.Figure,
+    *,
+    title: str = "Shot Share",
+    bins=((0, 5), (5, 15), (15, 30), (30, 100)),
+    colors=(
+        "rgba(214,64,64,0.88)",   # red
+        "rgba(224,196,64,0.88)",  # yellow
+        "rgba(110,170,150,0.88)", # teal
+        "rgba(64,164,96,0.88)",   # green
+    ),
+) -> None:
+    """
+    Adds a right-side discrete color legend (0-100%) using a dummy Scatter trace.
+    The map itself stays unchanged.
+    """
+    n = len(colors)
+
+    # Build a discrete colorscale over z in [0, n-1]
+    cs = discrete_colorscale(list(colors))
+
+    # Tick positions at bin centers (0..n-1)
+    tickvals = list(range(n))
+    ticktext = [f"{a}–{b}%" for a, b in bins]
+
+    fig.add_trace(
+        go.Scatter(
+            x=[1000], y=[1000],
+            mode="markers",
+            marker=dict(
+                size=12,
+                color=tickvals,   # just to "activate" all bins
+                cmin=0,
+                cmax=n - 1,
+                colorscale=cs,
+                colorbar=dict(
+                    title=title,
+                    tickmode="array",
+                    tickvals=tickvals,
+                    ticktext=ticktext,
+                    ticks="outside",
+                    len=0.70,
+                    thickness=18,
+                    x=0.75,  # push a bit to the right
+                ),
+            ),
+            hoverinfo="skip",
+            showlegend=False,
+            opacity=0.0,  # invisible on court
+        )
+    )
+
+
+
+
 # -----------------------------
 # Mode 2: Zone share labels (percent only on the court)
 # -----------------------------
@@ -680,7 +744,7 @@ def make_zone_share_label_map(f: pd.DataFrame) -> tuple[go.Figure, pd.DataFrame]
         height=720,
         xaxis=dict(range=[-260, 260]),
         yaxis=dict(range=[Y_MIN, Y_MAX]),
-        margin=dict(l=10, r=10, t=10, b=10),
+        margin=dict(l=10, r=50, t=10, b=10),
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
     )
@@ -705,6 +769,21 @@ def make_zone_share_label_map(f: pd.DataFrame) -> tuple[go.Figure, pd.DataFrame]
             return "rgba(110,170,150,0.88)"
 
         return "rgba(64,164,96,0.88)"  # dark green (30%+)
+
+
+    # Right-side legend for the discrete % colors
+    add_discrete_percent_legend(
+        fig,
+        title="Shot Share (%)",
+        bins=((0, 5), (5, 15), (15, 30), (30, 100)),
+        colors=(
+            "rgba(214,64,64,0.88)",
+            "rgba(224,196,64,0.88)",
+            "rgba(110,170,150,0.88)",
+            "rgba(64,164,96,0.88)",
+        ),
+    )
+
 
     for _, row in known.iterrows():
         zone = row["SHOT_ZONE_BASIC"]
