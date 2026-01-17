@@ -226,7 +226,7 @@ if page == "Home":
     st.markdown(
         """
         <div style="font-size:18px; line-height:1.6;">
-        <strong>Deni – Last 5 Games</strong>
+        <strong>Last 5 Games Deni played:</strong>
         </div>
         """,
         unsafe_allow_html=True
