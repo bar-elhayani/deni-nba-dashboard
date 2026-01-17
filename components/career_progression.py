@@ -62,41 +62,68 @@ def _safe_float_series(s: pd.Series) -> pd.Series:
     return pd.to_numeric(s, errors="coerce").astype(float)
 
 
+# ----------------------------
+# NEW: standardize column names across sources
+# ----------------------------
+def _standardize_common_columns(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+
+    # season / player base names
+    rename_map = {
+        "SEASON": "season",
+        "Season": "season",
+        "YEAR": "season",
+        "year": "season",
+        "PLAYER_NAME": "player_name",
+        "Player": "player_name",
+        "NAME": "player_name",
+        "name": "player_name",
+        "PLAYER_ID": "player_id",
+        "ID": "player_id",
+        "Id": "player_id",
+        "id": "player_id",
+        "PERSON_ID": "player_id",
+    }
+
+    # GP: this is a frequent mismatch causing totals to be wrong
+    gp_alts = ["GP", "G", "Games", "GAMES", "games_played", "GAMES_PLAYED"]
+    for c in gp_alts:
+        if c in out.columns and c != "GP":
+            rename_map[c] = "GP"
+            break
+
+    # MP / Minutes
+    mp_alts = ["MP", "MIN", "Minutes", "MINUTES", "MPG", "MINPG", "MIN_PER_GAME"]
+    for c in mp_alts:
+        if c in out.columns and c != "MP":
+            rename_map[c] = "MP"
+            break
+
+    # Team abbrev
+    team_alts = ["TEAM_ABBREVIATION", "TEAM", "Team", "tm", "TM", "team_abbrev", "team"]
+    for c in team_alts:
+        if c in out.columns and c != "team_abbrev":
+            rename_map[c] = "team_abbrev"
+            break
+
+    out = out.rename(columns={k: v for k, v in rename_map.items() if k in out.columns})
+
+    if "season" in out.columns:
+        out["season"] = out["season"].astype(str).str.strip()
+
+    return out
+
+
 def _build_master_df(base: pd.DataFrame, adv: pd.DataFrame) -> pd.DataFrame:
-    b = base.copy()
-    a = adv.copy() if adv is not None else None
+    b = _standardize_common_columns(base)
+    a = _standardize_common_columns(adv) if adv is not None else None
 
-    for df in [b] + ([a] if a is not None else []):
-        if df is None:
-            continue
-
-        if "season" not in df.columns:
-            for alt in ["SEASON", "Season", "year", "YEAR"]:
-                if alt in df.columns:
-                    df.rename(columns={alt: "season"}, inplace=True)
-                    break
-
-        if "player_name" not in df.columns:
-            for alt in ["PLAYER_NAME", "Player", "name", "NAME"]:
-                if alt in df.columns:
-                    df.rename(columns={alt: "player_name"}, inplace=True)
-                    break
-
-        if "player_id" not in df.columns:
-            for alt in ["PLAYER_ID", "id", "ID"]:
-                if alt in df.columns:
-                    df.rename(columns={alt: "player_id"}, inplace=True)
-                    break
-
-    if a is not None and "player_id" in b.columns and "player_id" in a.columns:
+    if a is not None and ("player_id" in b.columns) and ("player_id" in a.columns):
         join_keys = ["player_id", "season"]
     else:
         join_keys = ["player_name", "season"]
 
-    if a is None:
-        df = b
-    else:
-        df = b.merge(a, on=join_keys, how="left", suffixes=("", "_adv"))
+    df = b if a is None else b.merge(a, on=join_keys, how="left", suffixes=("", "_adv"))
 
     if "season" not in df.columns:
         raise ValueError("career_progression: Could not find a 'season' column in the provided data.")
@@ -105,99 +132,163 @@ def _build_master_df(base: pd.DataFrame, adv: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def _maybe_rescale_totals(df: pd.DataFrame) -> pd.DataFrame:
-    out = df.copy()
-    total_cols = ["PTS", "AST", "REB", "STL", "BLK", "TOV", "MP", "FTA", "FTM"]
-
-    for col in total_cols:
-        if col in out.columns:
-            out[col] = _safe_float_series(out[col])
-            mx = float(np.nanmax(out[col].values)) if len(out[col]) else np.nan
-            if not np.isnan(mx):
-                if mx < 5:
-                    out[col] = out[col] * 1000.0
-                elif mx < 50:
-                    out[col] = out[col] * 100.0
-
-    return out
-
-
 # ----------------------------
-# Derived metrics (Totals-first for the NEW FT metrics)
+# Derived metrics (robust: always produce PER_GAME + TOTAL consistently)
 # ----------------------------
 def _add_derived_metrics(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
 
-    def _pick_col(cands):
-        for c in cands:
-            if c in out.columns:
-                return c
-        return None
-
-    for col in ["PTS", "AST", "REB", "STL", "BLK", "TOV", "GP", "MP"]:
+    # numeric conversion
+    for col in ["PTS", "AST", "REB", "STL", "BLK", "TOV", "GP", "MP", "FTM", "FTA"]:
         if col in out.columns:
             out[col] = _safe_float_series(out[col])
 
-    ftm_col = _pick_col(["FTM", "FT_M", "FTMADE", "FT_MADE"])
-    fta_col = _pick_col(["FTA", "FT_A", "FTA_TOTAL", "FT_ATT", "FT_ATTEMPTS"])
-    ftp_col = _pick_col(["FT%", "FT_PCT", "FTPCT", "FT_PCT_ADV", "FT_PCT_adv"])
+    def _looks_like_per_game(col: str) -> bool:
+        if col not in out.columns:
+            return False
 
-    if ftm_col is not None:
-        out["FTM"] = _safe_float_series(out[ftm_col])
-    if fta_col is not None:
-        out["FTA"] = _safe_float_series(out[fta_col])
-    if ftp_col is not None:
-        out["FT_PCT"] = _safe_float_series(out[ftp_col])
+        s = out[col].values.astype(float)
+        mx = float(np.nanmax(s)) if len(out) else np.nan
+        if not np.isfinite(mx):
+            return False
 
-    if ("FTM" in out.columns) and ("FTA" in out.columns) and ("GP" in out.columns):
-        gp = out["GP"].replace(0, np.nan)
-        ftm_med = float(np.nanmedian(out["FTM"].values)) if len(out) else np.nan
-        fta_med = float(np.nanmedian(out["FTA"].values)) if len(out) else np.nan
-        if (not np.isnan(fta_med) and fta_med < 15.0) and (not np.isnan(ftm_med) and ftm_med < 12.0):
-            out["FTM"] = out["FTM"] * gp
-            out["FTA"] = out["FTA"] * gp
+        gp_ok = False
+        if "GP" in out.columns:
+            gp = out["GP"].values.astype(float)
+            gp_med = float(np.nanmedian(gp)) if len(out) else np.nan
+            gp_ok = np.isfinite(gp_med) and (1 <= gp_med <= 82)
 
-    out = _maybe_rescale_totals(out)
+        # Require GP to look like a season count to classify as per-game.
+        if not gp_ok:
+            return False
 
-    needed_eff = ["PTS", "REB", "AST", "STL", "BLK", "TOV"]
-    if all(c in out.columns for c in needed_eff):
-        out["EFF"] = out["PTS"] + out["REB"] + out["AST"] + out["STL"] + out["BLK"] - out["TOV"]
+        if col == "PTS":
+            return mx <= 60
+        if col in {"AST", "REB"}:
+            return mx <= 25
+        if col in {"STL", "BLK", "TOV"}:
+            return mx <= 10
+        if col == "MP":
+            # per-game minutes usually <= 48 (or low 40s)
+            return mx <= 48
+        if col in {"FTM", "FTA"}:
+            # per-game FT attempts/makes usually within these ranges
+            return mx <= 20
 
-    needed_contr = ["PTS", "AST", "REB"]
-    if all(c in out.columns for c in needed_contr):
-        out["CONTR"] = out["PTS"] + 1.5 * out["AST"] + 1.2 * out["REB"]
+        return False
 
     if "GP" in out.columns:
         gp = out["GP"].replace(0, np.nan)
+
+        # PTS
         if "PTS" in out.columns:
-            out["PTS_PER_GAME"] = out["PTS"] / gp
+            if _looks_like_per_game("PTS"):
+                out["PTS_PER_GAME"] = out["PTS"]
+                out["PTS_TOTAL"] = out["PTS"] * gp
+            else:
+                out["PTS_TOTAL"] = out["PTS"]
+                out["PTS_PER_GAME"] = out["PTS"] / gp
+
+        # AST
         if "AST" in out.columns:
-            out["AST_PER_GAME"] = out["AST"] / gp
+            if _looks_like_per_game("AST"):
+                out["AST_PER_GAME"] = out["AST"]
+                out["AST_TOTAL"] = out["AST"] * gp
+            else:
+                out["AST_TOTAL"] = out["AST"]
+                out["AST_PER_GAME"] = out["AST"] / gp
+
+        # REB
         if "REB" in out.columns:
-            out["REB_PER_GAME"] = out["REB"] / gp
-        if "EFF" in out.columns:
-            out["EFF_PER_GAME"] = out["EFF"] / gp
-        if "CONTR" in out.columns:
-            out["CONTR_PER_GAME"] = out["CONTR"] / gp
+            if _looks_like_per_game("REB"):
+                out["REB_PER_GAME"] = out["REB"]
+                out["REB_TOTAL"] = out["REB"] * gp
+            else:
+                out["REB_TOTAL"] = out["REB"]
+                out["REB_PER_GAME"] = out["REB"] / gp
 
-    if ("FT_PCT" not in out.columns) and ("FTM" in out.columns) and ("FTA" in out.columns):
-        denom = out["FTA"].replace(0, np.nan)
-        out["FT_PCT"] = out["FTM"] / denom
+        # Minutes
+        if "MP" in out.columns:
+            if _looks_like_per_game("MP"):
+                out["MP_PER_GAME"] = out["MP"]
+                out["MP_TOTAL"] = out["MP"] * gp
+            else:
+                out["MP_TOTAL"] = out["MP"]
+                out["MP_PER_GAME"] = out["MP"] / gp
 
-    if "FTA" in out.columns:
+        # Free throws
+        if "FTM" in out.columns:
+            if _looks_like_per_game("FTM"):
+                out["FTM_PER_GAME"] = out["FTM"]
+                out["FTM_TOTAL"] = out["FTM"] * gp
+            else:
+                out["FTM_TOTAL"] = out["FTM"]
+                out["FTM_PER_GAME"] = out["FTM"] / gp
+
+        if "FTA" in out.columns:
+            if _looks_like_per_game("FTA"):
+                out["FTA_PER_GAME"] = out["FTA"]
+                out["FTA_TOTAL"] = out["FTA"] * gp
+            else:
+                out["FTA_TOTAL"] = out["FTA"]
+                out["FTA_PER_GAME"] = out["FTA"] / gp
+
+    # FT%
+    if "FT_PCT" not in out.columns:
+        if ("FTM_TOTAL" in out.columns) and ("FTA_TOTAL" in out.columns):
+            denom = out["FTA_TOTAL"].replace(0, np.nan)
+            out["FT_PCT"] = out["FTM_TOTAL"] / denom
+        elif ("FTM" in out.columns) and ("FTA" in out.columns):
+            denom = out["FTA"].replace(0, np.nan)
+            out["FT_PCT"] = out["FTM"] / denom
+
+    # Fouls drawn proxy – always total if possible
+    if "FTA_TOTAL" in out.columns:
+        out["FOUL_DRAWN_TOTAL"] = out["FTA_TOTAL"]
+    elif "FTA" in out.columns:
         out["FOUL_DRAWN_TOTAL"] = out["FTA"]
+
+    # Optional composite metrics (use what exists; keeps design identical)
+    needed_eff = ["PTS_PER_GAME", "REB_PER_GAME", "AST_PER_GAME", "STL", "BLK", "TOV"]
+    if all(c in out.columns for c in needed_eff):
+        out["EFF_PER_GAME"] = (
+            out["PTS_PER_GAME"] + out["REB_PER_GAME"] + out["AST_PER_GAME"] + out["STL"] + out["BLK"] - out["TOV"]
+        )
+        if "GP" in out.columns:
+            gp = out["GP"].replace(0, np.nan)
+            out["EFF_TOTAL"] = out["EFF_PER_GAME"] * gp
+
+    needed_contr = ["PTS_PER_GAME", "AST_PER_GAME", "REB_PER_GAME"]
+    if all(c in out.columns for c in needed_contr):
+        out["CONTR_PER_GAME"] = out["PTS_PER_GAME"] + 1.5 * out["AST_PER_GAME"] + 1.2 * out["REB_PER_GAME"]
+        if "GP" in out.columns:
+            gp = out["GP"].replace(0, np.nan)
+            out["CONTR_TOTAL"] = out["CONTR_PER_GAME"] * gp
 
     return out
 
 
 def _get_metric_catalog(df: pd.DataFrame):
     preferred_order = [
+        # Per game (primary)
         "PTS_PER_GAME", "AST_PER_GAME", "REB_PER_GAME",
-        "PTS", "AST", "REB",
+
+        # Totals (preferred over raw PTS/AST/REB)
+        "PTS_TOTAL", "AST_TOTAL", "REB_TOTAL",
+
+        # Free throws (prefer totals if exist)
+        "FTM_TOTAL", "FTA_TOTAL",
         "FTM", "FTA", "FT_PCT", "FOUL_DRAWN_TOTAL",
-        "STL", "BLK", "TOV", "GP", "MP",
-        "EFF_PER_GAME", "EFF",
-        "CONTR_PER_GAME", "CONTR"
+
+        # Other box-score
+        "STL", "BLK", "TOV", "GP", "MP", "MP_PER_GAME", "MP_TOTAL",
+
+        # Composite
+        "EFF_PER_GAME", "EFF_TOTAL",
+        "CONTR_PER_GAME", "CONTR_TOTAL",
+
+        # Raw fallback (only if totals are missing)
+        "PTS", "AST", "REB",
     ]
 
     adv_candidates = ["USG%", "TS%", "eFG%", "PER", "BPM", "VORP", "WS", "WS/48", "ORTG", "DRTG"]
@@ -210,6 +301,7 @@ def _get_metric_catalog(df: pd.DataFrame):
         if c in df.columns:
             existing.append(c)
 
+    # Deduplicate, preserve order
     seen = set()
     cleaned = []
     for c in existing:
@@ -217,40 +309,76 @@ def _get_metric_catalog(df: pd.DataFrame):
             cleaned.append(c)
             seen.add(c)
 
+    # If TOTAL exists, drop the raw (ambiguous) column to avoid wrong "Totals"
+    if "PTS_TOTAL" in df.columns and "PTS" in cleaned:
+        cleaned.remove("PTS")
+    if "AST_TOTAL" in df.columns and "AST" in cleaned:
+        cleaned.remove("AST")
+    if "REB_TOTAL" in df.columns and "REB" in cleaned:
+        cleaned.remove("REB")
+
     labels = {
-        "PTS": "Points (Total)",
-        "AST": "Assists (Total)",
-        "REB": "Rebounds (Total)",
-        "STL": "Steals (Total)",
-        "BLK": "Blocks (Total)",
-        "TOV": "Turnovers (Total)",
-        "GP": "Games Played",
-        "MP": "Minutes (Total)",
+        # Per-game
         "PTS_PER_GAME": "Points Per Game",
         "AST_PER_GAME": "Assists Per Game",
         "REB_PER_GAME": "Rebounds Per Game",
-        "EFF": "Efficiency (EFF)",
-        "EFF_PER_GAME": "Efficiency Per Game (EFF/GP)",
-        "CONTR": "Contribution Score",
-        "CONTR_PER_GAME": "Contribution Per Game",
 
+        # Totals
+        "PTS_TOTAL": "Points (Total)",
+        "AST_TOTAL": "Assists (Total)",
+        "REB_TOTAL": "Rebounds (Total)",
+
+        # Minutes
+        "MP": "Minutes",
+        "MP_PER_GAME": "Minutes Per Game",
+        "MP_TOTAL": "Minutes (Total)",
+
+        # Raw (fallback only)
+        "PTS": "Points",
+        "AST": "Assists",
+        "REB": "Rebounds",
+
+        # Other
+        "STL": "Steals",
+        "BLK": "Blocks",
+        "TOV": "Turnovers",
+        "GP": "Games Played",
+
+        # Composite
+        "EFF_PER_GAME": "Efficiency Per Game (EFF/GP)",
+        "EFF_TOTAL": "Efficiency (Total)",
+        "CONTR_PER_GAME": "Contribution Per Game",
+        "CONTR_TOTAL": "Contribution Score (Total)",
+
+        # Free throws
+        "FTM": "Free Throws Made",
+        "FTA": "Free Throws Attempted",
+        "FTM_TOTAL": "Free Throws Made (Total)",
+        "FTA_TOTAL": "Free Throws Attempted (Total)",
+        "FT_PCT": "Free Throw %",
+        "FOUL_DRAWN_TOTAL": "Fouls Drawn (Proxy) — Total FTA",
+
+        # Advanced
         "USG%": "Usage % (Advanced)",
         "TS%": "True Shooting % (Advanced)",
         "eFG%": "eFG% (Advanced)",
+
         "USG_PCT": "Usage % (Advanced)",
         "TS_PCT": "True Shooting % (Advanced)",
         "EFG_PCT": "eFG% (Advanced)",
+
         "WS/48": "Win Shares / 48 (Advanced)",
         "WS48": "Win Shares / 48 (Advanced)",
+
         "ORtg": "Offensive Rating (Advanced)",
         "DRtg": "Defensive Rating (Advanced)",
         "ORTG": "Offensive Rating (Advanced)",
         "DRTG": "Defensive Rating (Advanced)",
 
-        "FTM": "Free Throws Made (Total)",
-        "FTA": "Free Throws Attempted (Total)",
-        "FT_PCT": "Free Throw %",
-        "FOUL_DRAWN_TOTAL": "Fouls Drawn (Proxy) — Total FTA",
+        "PER": "Player Efficiency Rating (Advanced)",
+        "BPM": "Box Plus/Minus (Advanced)",
+        "VORP": "VORP (Advanced)",
+        "WS": "Win Shares (Advanced)",
     }
 
     return [(col, labels.get(col, col)) for col in cleaned]
@@ -302,9 +430,8 @@ def _parse_rank_number(rank_text: str) -> int:
 # ----------------------------
 def _find_team_col(df: pd.DataFrame) -> str | None:
     candidates = [
-        "team", "TEAM", "Team",
-        "team_name", "TEAM_NAME", "TeamName",
-        "team_abbrev", "TEAM_ABBREV", "TEAM_ABBREVIATION", "tm", "TM",
+        "team_abbrev", "TEAM_ABBREV", "TEAM_ABBREVIATION", "team", "TEAM", "Team",
+        "team_name", "TEAM_NAME", "TeamName", "tm", "TM",
     ]
     for c in candidates:
         if c in df.columns:
@@ -319,13 +446,11 @@ def _normalize_team_code(raw_team: str) -> str | None:
     if s == "":
         return None
 
-    # common abbreviations
     if s in {"por", "portland", "trail blazers", "portland trail blazers", "portland blazers"}:
         return "POR"
     if s in {"was", "wsh", "washington", "wizards", "washington wizards"}:
         return "WAS"
 
-    # sometimes the data holds full names; detect keywords
     if "portland" in s or "blazer" in s:
         return "POR"
     if "washington" in s or "wizard" in s:
@@ -365,10 +490,6 @@ def _load_logo_as_data_uri(path: str) -> str | None:
 
 
 def _add_team_logos_on_points(fig: go.Figure, df_series: pd.DataFrame, season_team: dict, chosen_metric: str):
-    """
-    Adds layout images exactly on Deni markers (x=season, y=deni_val).
-    Uses data-coordinates; we compute a size relative to current y-range.
-    """
     y_vals = pd.to_numeric(df_series["deni_val"], errors="coerce").astype(float).values
     y_vals = y_vals[np.isfinite(y_vals)]
     if len(y_vals) == 0:
@@ -378,9 +499,7 @@ def _add_team_logos_on_points(fig: go.Figure, df_series: pd.DataFrame, season_te
     y_max = float(np.max(y_vals))
     y_rng = max(1e-9, (y_max - y_min))
 
-    # size in y-units: small fraction of range
     sizey = y_rng * 0.12
-    # sizex in category units: ~0.55 works well for typical spacing
     sizex = 0.75
 
     for _, r in df_series.iterrows():
@@ -437,6 +556,19 @@ def _apply_team_tint_background(team_code: str | None):
 # ----------------------------
 # CSV rankings integration
 # ----------------------------
+@st.cache_data(show_spinner=False)
+def _load_league_all_seasons_base() -> pd.DataFrame:
+    candidates = [
+        "league_all_seasons_base.csv",
+        os.path.join("data", "league_all_seasons_base.csv"),
+    ]
+    for p in candidates:
+        if os.path.exists(p):
+            df = pd.read_csv(p)
+            return df
+    return pd.DataFrame()
+
+
 @st.cache_data(show_spinner=False)
 def _load_deni_season_rankings_csv() -> pd.DataFrame:
     candidates = [
@@ -673,8 +805,7 @@ def _render_rank_barchart_for_selected_metric(
 
     league_text = _format_metric_value(metric_col, league_avg_val)
 
-    # ---- Aesthetic settings ----
-    TEAM_RED = "rgb(220,38,38)"      #red
+    TEAM_RED = "rgb(220,38,38)"
     BLUE_COLOR = "rgba(93,174,248,1.0)"
     OUTLINE = "rgba(0,0,0,0.55)"
 
@@ -702,7 +833,6 @@ def _render_rank_barchart_for_selected_metric(
         )
     )
 
-    # Nicer axis range padding
     y_clean = [v for v in y_vals if v is not None and not (isinstance(v, float) and np.isnan(v))]
     if len(y_clean) > 0:
         y_max = float(max(y_clean))
@@ -722,8 +852,6 @@ def _render_rank_barchart_for_selected_metric(
         showlegend=False,
         font=dict(size=15),
         title_font=dict(size=18),
-
-        # makes groups look slimmer and cleaner
         bargap=0.55,
         bargroupgap=0.20,
     )
@@ -748,6 +876,7 @@ def _render_rank_barchart_for_selected_metric(
 
     st.plotly_chart(fig, width="stretch")
 
+
 # ----------------------------
 # Main render
 # ----------------------------
@@ -756,15 +885,12 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
     st.markdown(
         """
         <style>
-        /* 1) Remove the "card" look from columns (so empty right column won't be a white box) */
         div[data-testid="stHorizontalBlock"] > div[data-testid="column"] > div {
             background: transparent !important;
             box-shadow: none !important;
             border: 0 !important;
             padding: 0 !important;
         }
-
-        /* 2) Make bordered containers look like the nice white card */
         div[data-testid="stContainer"][data-border="true"]{
             background: rgba(255,255,255,0.96) !important;
             border: 1px solid rgba(0,0,0,0.06) !important;
@@ -796,7 +922,6 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
         st.error("No seasons found for Deni.")
         return
 
-    # team map per season (for x-axis + logos + background)
     season_team = _build_season_team_map(df_deni)
 
     metric_options = _get_metric_catalog(df)
@@ -821,13 +946,54 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
 
     df_plot_all = df[df["season"].astype(str).isin(seasons)].copy()
     df_plot_all["season"] = df_plot_all["season"].astype(str)
-    df_plot_all[chosen_metric] = _safe_float_series(df_plot_all[chosen_metric]) if chosen_metric in df_plot_all.columns else np.nan
+    if chosen_metric in df_plot_all.columns:
+        df_plot_all[chosen_metric] = _safe_float_series(df_plot_all[chosen_metric])
+    else:
+        df_plot_all[chosen_metric] = np.nan
 
-    league_avg = (
-        df_plot_all.groupby("season", as_index=False)[chosen_metric]
-        .mean(numeric_only=True)
-        .rename(columns={chosen_metric: "league_avg"})
-    )
+    # ----------------------------
+    # FIX: League Avg should come from league source + rotation filter (not all players)
+    # ----------------------------
+    def _rotation_filter(d: pd.DataFrame) -> pd.DataFrame:
+        x = d.copy()
+        if "GP" in x.columns:
+            x = x[_safe_float_series(x["GP"]) >= 15]
+        if "MP_PER_GAME" in x.columns:
+            x = x[_safe_float_series(x["MP_PER_GAME"]) >= 10]
+        elif "MP" in x.columns and "GP" in x.columns:
+            mp_pg = _safe_float_series(x["MP"]) / _safe_float_series(x["GP"]).replace(0, np.nan)
+            x = x[mp_pg >= 10]
+        return x
+
+    league_src = _load_league_all_seasons_base()
+    if not league_src.empty:
+        league_src = _standardize_common_columns(league_src)
+        league_src = _add_derived_metrics(league_src)
+        league_src["season"] = league_src["season"].astype(str)
+        league_src = league_src[league_src["season"].isin(seasons)]
+        league_src = _rotation_filter(league_src)
+
+        if chosen_metric in league_src.columns:
+            league_src[chosen_metric] = _safe_float_series(league_src[chosen_metric])
+            league_avg = (
+                league_src.groupby("season", as_index=False)[chosen_metric]
+                .mean()
+                .rename(columns={chosen_metric: "league_avg"})
+            )
+        else:
+            tmp = _rotation_filter(df_plot_all)
+            league_avg = (
+                tmp.groupby("season", as_index=False)[chosen_metric]
+                .mean(numeric_only=True)
+                .rename(columns={chosen_metric: "league_avg"})
+            )
+    else:
+        tmp = _rotation_filter(df_plot_all)
+        league_avg = (
+            tmp.groupby("season", as_index=False)[chosen_metric]
+            .mean(numeric_only=True)
+            .rename(columns={chosen_metric: "league_avg"})
+        )
 
     df_deni_plot = df_deni.copy()
     df_deni_plot["season"] = df_deni_plot["season"].astype(str)
@@ -838,14 +1004,12 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
     df_series = df_series.merge(df_deni_plot, on="season", how="left")
     df_series = df_series.merge(league_avg, on="season", how="left")
 
-    # selection (FIXED): keep previous selection unless a new click event arrives
     default_season = seasons[-1]
     if "career_selected_season" not in st.session_state:
         st.session_state["career_selected_season"] = default_season
 
     selected_season = st.session_state["career_selected_season"]
 
-    # marker emphasis for selected season
     deni_sizes = []
     deni_line_widths = []
     for s in df_series["season"].astype(str).tolist():
@@ -879,7 +1043,6 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
         hovertemplate="Season: %{x}<br>Deni: %{y:.3f}<extra></extra>",
     ))
 
-    # X-axis: show team under season (if known)
     ticktext = []
     for s in seasons:
         team = season_team.get(str(s), None)
@@ -905,7 +1068,6 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
         ticktext=ticktext,
     )
 
-    # chart labels
     annotations = [{
         "x": 0.01,
         "y": 0.98,
@@ -949,10 +1111,8 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
 
     fig.update_layout(annotations=annotations)
 
-    # add logos on Deni points (replaces finger emoji)
     _add_team_logos_on_points(fig, df_series, season_team, chosen_metric)
 
-    # render chart WITH event (selection fix)
     st.caption("Click a season point to open the season details below.")
     event = st.plotly_chart(
         fig,
@@ -962,7 +1122,6 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
         selection_mode=("points",),
     )
 
-    # update selection if user clicked
     try:
         if event and event.selection and event.selection.points:
             p = event.selection.points[0]
@@ -972,8 +1131,6 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
         pass
 
     selected_season = st.session_state["career_selected_season"]
-
-    # Optional: tint background by selected season team
     _apply_team_tint_background(season_team.get(str(selected_season), None))
 
     # ----------------------------
@@ -1030,7 +1187,7 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
             )
 
             if (not np.isnan(deni_rank)) and (not np.isnan(prev_rank)):
-                delta_places = int(round(prev_rank - deni_rank))  # positive => improved
+                delta_places = int(round(prev_rank - deni_rank))
                 if delta_places > 0:
                     trend = f"▲ +{delta_places}"
                 elif delta_places < 0:
@@ -1087,7 +1244,6 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
         else:
             st.metric("Biggest Drop", best_drop_item[1], f"{best_drop_item[0]} places")
 
-    # NEW: Replace "Season Ranking Table" with interactive bar chart
     st.subheader(f"Season Ranking (Chart) — {selected_season}")
 
     c_sel2, c_spacer2 = st.columns([1, 4])
@@ -1111,7 +1267,6 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
         rank_df=rank_df,
     )
 
-    # Optional: keep the dataframe available (collapsed)
     with st.expander("Show full season table (all metrics)"):
         try:
             st.dataframe(display_df, width="stretch", hide_index=True)
@@ -1166,7 +1321,7 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
 
         rank_change = np.nan
         if (not np.isnan(ra)) and (not np.isnan(rb)):
-            rank_change = int(round(ra - rb))  # + => improved
+            rank_change = int(round(ra - rb))
 
         comp_rows.append({
             "Metric": metric_labels.get(m, m),
