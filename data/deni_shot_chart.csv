@@ -3763,6 +3763,24 @@ LOC_X,LOC_Y,SHOT_ZONE_BASIC,SHOT_ZONE_AREA,SHOT_ZONE_RANGE,SHOT_MADE_FLAG,GAME_D
 56,126,In The Paint (Non-RA),Center(C),8-16 ft.,1,20260111,2025-26,4,Driving Floating Jump Shot,Made
 -78,243,Above the Break 3,Center(C),24+ ft.,0,20260111,2025-26,4,Step Back Jump shot,Missed
 1,75,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20260111,2025-26,4,Driving Floating Jump Shot,Missed
+-26,136,In The Paint (Non-RA),Center(C),8-16 ft.,1,20260118,2025-26,1,Fadeaway Jump Shot,Made
+-15,274,Above the Break 3,Center(C),24+ ft.,0,20260118,2025-26,1,Pullup Jump shot,Missed
+240,63,Right Corner 3,Right Side(R),24+ ft.,1,20260118,2025-26,1,Jump Shot,Made
+-50,32,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20260118,2025-26,1,Driving Layup Shot,Missed
+27,22,Restricted Area,Center(C),Less Than 8 ft.,1,20260118,2025-26,1,Driving Layup Shot,Made
+23,20,Restricted Area,Center(C),Less Than 8 ft.,1,20260118,2025-26,1,Reverse Layup Shot,Made
+-17,41,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20260118,2025-26,1,Driving Reverse Layup Shot,Made
+-20,29,Restricted Area,Center(C),Less Than 8 ft.,1,20260118,2025-26,2,Driving Layup Shot,Made
+20,31,Restricted Area,Center(C),Less Than 8 ft.,0,20260118,2025-26,2,Driving Finger Roll Layup Shot,Missed
+-29,299,Above the Break 3,Center(C),24+ ft.,1,20260118,2025-26,2,Pullup Jump shot,Made
+145,232,Above the Break 3,Right Side Center(RC),24+ ft.,0,20260118,2025-26,2,Step Back Jump shot,Missed
+-2,30,Restricted Area,Center(C),Less Than 8 ft.,1,20260118,2025-26,3,Running Layup Shot,Made
+-9,61,In The Paint (Non-RA),Center(C),Less Than 8 ft.,1,20260118,2025-26,3,Driving Hook Shot,Made
+132,222,Above the Break 3,Right Side Center(RC),24+ ft.,0,20260118,2025-26,3,Pullup Jump shot,Missed
+2,73,In The Paint (Non-RA),Center(C),Less Than 8 ft.,0,20260118,2025-26,4,Driving Layup Shot,Missed
+-6,268,Above the Break 3,Center(C),24+ ft.,0,20260118,2025-26,4,Step Back Jump shot,Missed
+1,104,In The Paint (Non-RA),Center(C),8-16 ft.,0,20260118,2025-26,4,Fadeaway Jump Shot,Missed
+25,24,Restricted Area,Center(C),Less Than 8 ft.,1,20260118,2025-26,4,Driving Layup Shot,Made
 16,18,Restricted Area,Center(C),Less Than 8 ft.,0,20251211,2025-26,1,Running Layup Shot,Missed
 16,4,Restricted Area,Center(C),Less Than 8 ft.,1,20251211,2025-26,1,Running Layup Shot,Made
 -15,0,Restricted Area,Center(C),Less Than 8 ft.,0,20251211,2025-26,1,Running Layup Shot,Missed
