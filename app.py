@@ -121,6 +121,20 @@ def load_all_data():
 deni_shots, base, adv, lebron_shots, casspi_shots, deni_lebron_compare, deni_casspi_compare, deni_gamelog = load_all_data()
 
 st.sidebar.header("Navigation")
+st.sidebar.markdown(
+    """
+    <div style="
+        font-size: 14px;
+        line-height: 1.25;
+        color: rgba(0,0,0,0.65);
+        margin-top: 6px;
+        margin-bottom: 10px;
+    ">
+      <b>Tip:</b> Collapse the sidebar for full-width charts and a cleaner layout in each page.
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 page = st.sidebar.radio(
     "What would you like to see?",
     ["Home", "Career Trends", "Shot Locations", "Offense vs Defense", "Player Comparison", "Player Case Study"],
