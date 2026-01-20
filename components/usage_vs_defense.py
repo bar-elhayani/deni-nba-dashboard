@@ -612,6 +612,10 @@ def make_player_image_scatter_xy(
 
 def render_usage_vs_defense(base_df: pd.DataFrame, adv_df: pd.DataFrame) -> None:
     st.header("Usage vs Defense – Deni vs Player Groups")
+    st.caption(
+        "### This page examines Deni Avdija’s offensive and defensive impact relative to other players.\n\n"
+        "### It shows how he compares to league peers across key metrics, and where he stands in terms of overall balance between offense and defense."
+    )
 
     deni_seasons = sorted(base_df.loc[base_df["PLAYER_ID"] == DENI_ID, "SEASON"].unique().tolist())
     if len(deni_seasons) == 0:

@@ -8,9 +8,8 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 
-# ----------------------------
 # Constants
-# ----------------------------
+
 CHART_KEY = "career_progression_chart"
 
 # Expected locations
@@ -882,6 +881,10 @@ def _render_rank_barchart_for_selected_metric(
 # ----------------------------
 def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
     st.subheader("Career Progression Over Seasons")
+    st.caption(
+        "### This page focuses on Deni Avdija’s development over time.\n\n"
+        "### It shows how his key performance metrics evolve from season to season, allowing us to track trends, improvements, and changes throughout his NBA career."
+    )
     st.markdown(
         """
         <style>

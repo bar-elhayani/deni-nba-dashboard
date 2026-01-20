@@ -129,6 +129,9 @@ page = st.sidebar.radio(
 
 if page == "Home":
     st.markdown("## Welcome 🏀")
+    st.caption(
+        "### This dashboard provides a visual and interactive overview of Deni Avdija’s performance and career development in the NBA.\n"
+    )
     st.caption("Use the sidebar to navigate between views.")
     team_abbr = "POR"
     team_logo_b64 = img_to_base64(TEAM_LOGO_PATHS[team_abbr])

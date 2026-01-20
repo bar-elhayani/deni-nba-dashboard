@@ -29,6 +29,7 @@ def _hide_xy_axes(fig: go.Figure) -> None:
         showticklabels=False,
         ticks="",
         showline=False,
+        fixedrange=True,
     )
     fig.update_yaxes(
         title="",
@@ -37,7 +38,9 @@ def _hide_xy_axes(fig: go.Figure) -> None:
         showticklabels=False,
         ticks="",
         showline=False,
+        fixedrange=True,
     )
+    fig.update_layout(dragmode=False)
 
 
 # -----------------------------
@@ -876,6 +879,10 @@ def make_zone_share_label_map(f: pd.DataFrame) -> tuple[go.Figure, pd.DataFrame]
 # -----------------------------
 def render_shot_map(shots_df: pd.DataFrame) -> None:
     st.header("Shot Map – Deni Avdija")
+    st.caption(
+        "### This page explores where Deni Avdija takes his shots from on the court.\n\n"
+        "### It helps identify his most common shooting areas, his efficiency in different zones, and how his shot selection changes across game situations."
+    )
 
     df = shots_df.copy()
     df["PERIOD"] = pd.to_numeric(df["PERIOD"], errors="coerce")

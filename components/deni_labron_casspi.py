@@ -1046,6 +1046,10 @@ def render_deni_labron_casspi(
     deni_casspi_compare: pd.DataFrame,
 ):
     st.header("Deni Avdija Comparisons")
+    st.caption(
+        "### This page compares Deni Avdija to historical reference players at similar career stages.\n\n"
+        "### It puts his current performance into context by comparing it to both an all-time superstar and a key Israeli benchmark."
+    )
 
     deni_csv = _resolve_rankings_path("deni_season_rankings.csv")
     lebron_csv = _resolve_rankings_path("lebron_season_rankings.csv")
