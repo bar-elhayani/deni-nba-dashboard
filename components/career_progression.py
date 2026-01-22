@@ -729,8 +729,8 @@ def _style_compare_two_seasons(comp_df: pd.DataFrame, season_a: str, season_b: s
     col_a = f"{season_a} (Deni)"
     col_b = f"{season_b} (Deni)"
 
-    green_bg = _soft_cell_bg("#22c55e", 0.14)
-    red_bg = _soft_cell_bg("#ef4444", 0.12)
+    green_bg = _soft_cell_bg("#43aa8b", 0.16)  # winner
+    red_bg = _soft_cell_bg("#f94144", 0.14)  # loser
 
     def _to_num(x):
         if x is None:
@@ -804,14 +804,14 @@ def _render_rank_barchart_for_selected_metric(
 
     league_text = _format_metric_value(metric_col, league_avg_val)
 
-    TEAM_RED = "rgb(220,38,38)"
-    BLUE_COLOR = "rgba(93,174,248,1.0)"
+    TEAM_orange = "#FB8500"
+    BLUE_COLOR = "#023047"
     OUTLINE = "rgba(0,0,0,0.55)"
 
     x_labels = ["Deni", "League Avg"]
     y_vals = [deni_val, league_avg_val]
     texts = [deni_text, league_text]
-    colors = [BLUE_COLOR, TEAM_RED]
+    colors = [BLUE_COLOR, TEAM_orange]
 
     fig = go.Figure()
 
@@ -1031,8 +1031,8 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
         mode="lines+markers",
         name="League Average",
         opacity=0.85,
-        line=dict(width=3, dash="dot", color="red"),
-        marker=dict(size=7, color="red"),
+        line=dict(width=3, dash="dot", color="#FB8500"),
+        marker=dict(size=7, color="#FB8500"),
         hovertemplate="Season: %{x}<br>League Avg: %{y:.3f}<extra></extra>",
     ))
 
@@ -1041,8 +1041,8 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
         y=df_series["deni_val"],
         mode="lines+markers",
         name="Deni Avdija",
-        line=dict(width=4),
-        marker=dict(size=deni_sizes, line=dict(width=deni_line_widths)),
+        line=dict(width=4, color="#023047"),
+        marker=dict(size=deni_sizes, color="#023047", line=dict(width=deni_line_widths)),
         hovertemplate="Season: %{x}<br>Deni: %{y:.3f}<extra></extra>",
     ))
 
@@ -1107,7 +1107,7 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
             "text": "Deni",
             "showarrow": False,
             "opacity": 0.9,
-            "font": {"size": 11, "color": "#5DAEF8"},
+            "font": {"size": 11, "color": "#023047"},
             "xanchor": "left",
             "yanchor": "top",
         })

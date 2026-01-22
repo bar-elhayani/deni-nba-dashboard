@@ -122,7 +122,7 @@ def _load_rankings_lookup(filename: str = "deni_season_rankings.csv"):
     if not os.path.exists(csv_path):
         return {}
     df = pd.read_csv(csv_path)
-    ...
+
     df.columns = [str(c).strip().upper() for c in df.columns]
 
     req = ["SEASON", "METRIC", "ABS_RANK", "TOTAL_PLAYERS", "PERCENTILE"]
@@ -653,8 +653,8 @@ def _render_tornado_mirror_chart(metrics_df: pd.DataFrame, deni_name: str, other
     deni_win = np.where(is_lower, deni_val <= other_val, deni_val >= other_val)
     other_win = ~deni_win
 
-    deni_green_win = "rgba(76, 175, 80, 0.75)"
-    other_purple_win = "rgba(156, 139, 201, 0.75)"
+    deni_green_win = "rgba(251,133,0,0.88)"
+    other_purple_win = "rgba(2,48,71,0.88)"
     loser_gray = "rgba(180, 180, 180, 0.25)"
 
     eps = 1e-12
@@ -696,6 +696,17 @@ def _render_tornado_mirror_chart(metrics_df: pd.DataFrame, deni_name: str, other
         for v, m in zip(df_plot["other_val"].to_numpy(float), df_plot["metric"].astype(str).tolist())
     ]
 
+    # ---- NEW: text color depends on bar color (gray -> black, colored -> white)
+    deni_text_colors = [
+        "rgba(0,0,0,0.95)" if c == loser_gray else "rgba(255,255,255,0.95)"
+        for c in deni_colors_plot
+    ]
+    other_text_colors = [
+        "rgba(0,0,0,0.95)" if c == loser_gray else "rgba(255,255,255,0.95)"
+        for c in other_colors_plot
+    ]
+    # ---- END NEW
+
     LABELS = {
         "PTS": "Points",
         "REB": "Rebounds",
@@ -733,7 +744,7 @@ def _render_tornado_mirror_chart(metrics_df: pd.DataFrame, deni_name: str, other
             text=deni_text,
             textposition="inside",
             insidetextanchor="middle",
-            textfont=dict(color="rgba(0,0,0,0.70)", size=11, family="Arial"),
+            textfont=dict(color=deni_text_colors, size=11, family="Arial"),
             hovertemplate=f"{deni_name}<br>%{{y}}: %{{text}}<extra></extra>",
         )
     )
@@ -749,7 +760,7 @@ def _render_tornado_mirror_chart(metrics_df: pd.DataFrame, deni_name: str, other
             text=other_text,
             textposition="inside",
             insidetextanchor="middle",
-            textfont=dict(color="rgba(0,0,0,0.70)", size=11, family="Arial"),
+            textfont=dict(color=other_text_colors, size=11, family="Arial"),
             hovertemplate=f"{other_name}<br>%{{y}}: %{{text}}<extra></extra>",
         )
     )
@@ -823,6 +834,7 @@ def _render_tornado_mirror_chart(metrics_df: pd.DataFrame, deni_name: str, other
 
 # =========================================================
 # Tornado VIEW 2: Grouped (same baseline, always green/purple + black separators)
+# (unchanged)
 # =========================================================
 def _render_tornado_grouped_chart(metrics_df: pd.DataFrame, deni_name: str, other_name: str) -> None:
     if metrics_df is None or metrics_df.empty:
@@ -850,8 +862,8 @@ def _render_tornado_grouped_chart(metrics_df: pd.DataFrame, deni_name: str, othe
     deni_norm = deni_val / denom
     other_norm = other_val / denom
 
-    deni_green = "rgba(76, 175, 80, 0.75)"
-    other_purple = "rgba(156, 139, 201, 0.75)"
+    deni_green = "rgba(251,133,0,0.88)"
+    other_purple = "rgba(2,48,71,0.88)"
 
     LABELS = {
         "PTS": "Points",
@@ -936,7 +948,7 @@ def _render_tornado_grouped_chart(metrics_df: pd.DataFrame, deni_name: str, othe
             text=deni_text_aligned,
             textposition="inside",
             insidetextanchor="middle",
-            textfont=dict(color="rgba(0,0,0,0.70)", size=11, family="Arial"),
+            textfont=dict(color="rgba(255,255,255,0.95)", size=11, family="Arial"),
             hovertemplate=f"{deni_name}<br>%{{y}}: %{{text}}<extra></extra>",
         )
     )
@@ -952,13 +964,14 @@ def _render_tornado_grouped_chart(metrics_df: pd.DataFrame, deni_name: str, othe
             text=other_text_aligned,
             textposition="inside",
             insidetextanchor="middle",
-            textfont=dict(color="rgba(0,0,0,0.70)", size=11, family="Arial"),
+            textfont=dict(color="rgba(255,255,255,0.95)", size=11, family="Arial"),
             hovertemplate=f"{other_name}<br>%{{y}}: %{{text}}<extra></extra>",
         )
     )
+
     # --- Force legend colors (dummy traces) ---
-    deni_green_win = "rgba(76, 175, 80, 0.75)"
-    other_purple_win = "rgba(156, 139, 201, 0.75)"
+    deni_green_win = "rgba(251,133,0,0.88)"
+    other_purple_win = "rgba(2,48,71,0.88)"
 
     fig.add_trace(
         go.Scatter(

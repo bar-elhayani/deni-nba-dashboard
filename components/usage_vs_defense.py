@@ -563,7 +563,7 @@ def make_player_image_scatter_xy(
                 type="line", xref="x", yref="y",
                 x0=float(x_mean_line), x1=float(x_mean_line),
                 y0=y_range_fixed[0], y1=y_range_fixed[1],
-                line=dict(color="rgba(220,0,0,0.95)", width=3, dash="dash"),
+                line=dict(color="rgba(0,0,0,0.85)", width=2),
             )
         )
 

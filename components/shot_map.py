@@ -298,17 +298,13 @@ def make_hex_map(full_hex: pd.DataFrame) -> go.Figure:
     fgm_bins = np.minimum(nz["FGM"].to_numpy(), max_bin)
 
     bin_labels = [str(i) for i in range(max_bin)] + [f"{max_bin}+"]
-    colors = [
-        "rgb(255,255,255)",
-        "rgb(255,230,230)",
-        "rgb(255,200,200)",
-        "rgb(255,160,160)",
-        "rgb(255,120,120)",
-        "rgb(255,70,70)",
-        "rgb(220,20,20)",
-        "rgb(170,0,0)",
-        "rgb(110,0,0)",
-    ]
+    colors = (
+        "rgba(251,133,0,0.88)",
+        "rgba(244,162,97,0.88)",
+        "rgba(91,124,153,0.88)",
+        "rgba(2,48,71,0.88)",
+    )
+
     cs = discrete_colorscale(colors)
 
     fg_ratio = nz["FGM"].to_numpy() / nz["FGA"].to_numpy()
@@ -455,10 +451,24 @@ def make_zone_map(f: pd.DataFrame, selected_zone: str | None = None) -> tuple[go
     fig.update_yaxes(scaleanchor="x", scaleratio=1)
 
     # Colorbar for FG%
-    colorscale = "RdYlGn"
+    colorscale = [
+        [0.0, "#fb8500"],  # Tiger Orange
+        [1.0, "#023047"],  # Deep Space Blue
+    ]
     fg_vals = known["FG%"].to_numpy()
-    fg_min = float(np.nanmin(fg_vals)) if np.isfinite(fg_vals).any() else 0.0
-    fg_max = float(np.nanmax(fg_vals)) if np.isfinite(fg_vals).any() else 1.0
+    valid = fg_vals[np.isfinite(fg_vals)]
+
+    if valid.size == 0:
+        fg_min, fg_max = 0.0, 1.0
+    else:
+        fg_min = float(np.quantile(valid, 0.05))
+        fg_max = float(np.quantile(valid, 0.95))
+
+    # safety padding
+    if fg_min == fg_max:
+        fg_min = max(0.0, fg_min - 0.05)
+        fg_max = min(1.0, fg_max + 0.05)
+
     if fg_min == fg_max:
         fg_min = max(0.0, fg_min - 0.05)
         fg_max = min(1.0, fg_max + 0.05)
@@ -763,15 +773,15 @@ def make_zone_share_label_map(f: pd.DataFrame) -> tuple[go.Figure, pd.DataFrame]
             return "rgba(140,140,140,0.35)"
 
         if v < 0.05:
-            return "rgba(214,64,64,0.88)"  # red (<5%)
+            return "rgba(251,133,0,0.88)"  # (<5%)
 
         if v < 0.15:
-            return "rgba(224,196,64,0.88)"  # yellow (5–15%)
+            return "rgba(244,162,97,0.88)"  # (5–15%)
 
         if v < 0.30:
-            return "rgba(110,170,150,0.88)"
+            return "rgba(91,124,153,0.88)"
 
-        return "rgba(64,164,96,0.88)"  # dark green (30%+)
+        return "rgba(2,48,71,0.88)"  # (30%+)
 
 
     # Right-side legend for the discrete % colors
@@ -780,10 +790,10 @@ def make_zone_share_label_map(f: pd.DataFrame) -> tuple[go.Figure, pd.DataFrame]
         title="Shot Share (%)",
         bins=((0, 5), (5, 15), (15, 30), (30, 100)),
         colors=(
-            "rgba(214,64,64,0.88)",
-            "rgba(224,196,64,0.88)",
-            "rgba(110,170,150,0.88)",
-            "rgba(64,164,96,0.88)",
+            "rgba(251,133,0,0.88)",
+            "rgba(244,162,97,0.88)",
+            "rgba(91,124,153,0.88)",
+            "rgba(2,48,71,0.88)",
         ),
     )
 
