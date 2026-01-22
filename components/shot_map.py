@@ -254,7 +254,7 @@ def make_hex_map(full_hex: pd.DataFrame) -> go.Figure:
     hover_tmpl = (
         "Shot Attempts: %{customdata[1]}<br>"
         "Made Shots: %{customdata[2]}<br>"
-        "Point Percentage: %{customdata[3]:.2%}<extra></extra>"
+        "FG%: %{customdata[3]:.2%}<extra></extra>"
     )
 
     z_customdata = [[hid, 0, 0, 0.0] for hid in z["HEX_ID"].to_numpy()]
@@ -292,22 +292,46 @@ def make_hex_map(full_hex: pd.DataFrame) -> go.Figure:
         fig = add_halfcourt_shapes(fig)
         return fig
 
+    # Size = attempts (same as before)
     sizes = np.clip(8 + 5.0 * nz["FGA"].to_numpy(), 10, 70)
 
-    max_bin = 8
-    fgm_bins = np.minimum(nz["FGM"].to_numpy(), max_bin)
+    # FG% per hex
+    fg_ratio = nz["FGM"].to_numpy() / np.maximum(nz["FGA"].to_numpy(), 1)
 
-    bin_labels = [str(i) for i in range(max_bin)] + [f"{max_bin}+"]
+    # Robust min/max for scaling (ignore outliers)
+    valid = fg_ratio[np.isfinite(fg_ratio)]
+    if valid.size == 0:
+        fg_min, fg_max = 0.0, 1.0
+    else:
+        fg_min = float(np.quantile(valid, 0.05))
+        fg_max = float(np.quantile(valid, 0.95))
+
+    # Safety padding
+    if fg_min == fg_max:
+        fg_min = max(0.0, fg_min - 0.05)
+        fg_max = min(1.0, fg_max + 0.05)
+    if fg_min == fg_max:
+        fg_min, fg_max = 0.0, 1.0
+
+    # 4 discrete bins across [fg_min, fg_max]
     colors = (
-        "rgba(251,133,0,0.88)",
         "rgba(244,162,97,0.88)",
+        "rgba(251,133,0,0.88)",
         "rgba(91,124,153,0.88)",
         "rgba(2,48,71,0.88)",
     )
+    cs = discrete_colorscale(list(colors))
 
-    cs = discrete_colorscale(colors)
+    edges = np.linspace(fg_min, fg_max, 5)  # 4 bins => 5 edges
+    fg_bin_idx = np.digitize(fg_ratio, edges[1:-1], right=False)  # 0..3
 
-    fg_ratio = nz["FGM"].to_numpy() / nz["FGA"].to_numpy()
+    # Colorbar labels as percent ranges
+    bin_labels = [
+        f"{edges[0]*100:.0f}–{edges[1]*100:.0f}%",
+        f"{edges[1]*100:.0f}–{edges[2]*100:.0f}%",
+        f"{edges[2]*100:.0f}–{edges[3]*100:.0f}%",
+        f"{edges[3]*100:.0f}–{edges[4]*100:.0f}%",
+    ]
 
     nz_customdata = [
         [hid, int(fga), int(fgm), float(r)]
@@ -327,15 +351,16 @@ def make_hex_map(full_hex: pd.DataFrame) -> go.Figure:
             marker=dict(
                 symbol=hex_symbol,
                 size=sizes,
-                color=fgm_bins,
+                color=fg_bin_idx,   # <-- FG% bins drive color
                 cmin=0,
-                cmax=max_bin,
+                cmax=3,
                 colorscale=cs,
                 colorbar=dict(
-                    title="FGM (Makes)",
+                    title=dict(text="FG%", font=dict(color="black", size=14)),
                     tickmode="array",
-                    tickvals=list(range(0, max_bin + 1)),
+                    tickvals=[0, 1, 2, 3],
                     ticktext=bin_labels,
+                    tickfont=dict(color="black", size=12),
                     x=0.75,
                     thickness=18,
                     len=0.70,
@@ -485,8 +510,9 @@ def make_zone_map(f: pd.DataFrame, selected_zone: str | None = None) -> tuple[go
                 cmax=fg_max,
                 colorscale=colorscale,
                 colorbar=dict(
-                    title="FG% (Zone)",
+                    title=dict(text="Field Goal Percentage", font=dict(color="black", size=14)),
                     tickformat=".0%",
+                    tickfont=dict(color="black", size=12),
                     x=0.75,
                     thickness=18,
                     len=0.70,
@@ -510,6 +536,32 @@ def make_zone_map(f: pd.DataFrame, selected_zone: str | None = None) -> tuple[go
         return col.replace("rgb(", "rgba(").replace(")", f",{FILL_ALPHA})")
 
     max_fga = int(max(known["FGA"].max(), 1)) if not known.empty else 1
+    # Stronger discrete bins (same orange->blue palette)
+    BIN_COLORS = [
+        "#fb8500",  # orange
+        "#f4a261",  # light orange
+        "#5b7c99",  # steel blue
+        "#023047",  # deep blue
+    ]
+
+    def fg_to_rgba_binned(v: float) -> str:
+        if not np.isfinite(v):
+            return f"rgba(200,200,200,{FILL_ALPHA})"
+
+        # clip + normalize into [0,1]
+        t = 0.0 if fg_max == fg_min else (v - fg_min) / (fg_max - fg_min)
+        t = float(np.clip(t, 0.0, 1.0))
+
+        # 4 discrete bins
+        idx = min(int(t * len(BIN_COLORS)), len(BIN_COLORS) - 1)
+        col = BIN_COLORS[idx]  # hex
+
+        # hex -> rgba with same alpha
+        h = col.lstrip("#")
+        r = int(h[0:2], 16)
+        g = int(h[2:4], 16)
+        b = int(h[4:6], 16)
+        return f"rgba({r},{g},{b},{FILL_ALPHA})"
 
     for _, row in known.iterrows():
         zone = row["SHOT_ZONE_BASIC"]
@@ -518,7 +570,7 @@ def make_zone_map(f: pd.DataFrame, selected_zone: str | None = None) -> tuple[go
         fg = float(row["FG%"]) if fga > 0 else np.nan
 
         info = shapes[zone]
-        fill = fg_to_rgba(fg)
+        fill = fg_to_rgba_binned(fg)
 
         # Filled region
         if info["kind"] == "rect":
@@ -716,14 +768,15 @@ def add_discrete_percent_legend(
                 cmax=n - 1,
                 colorscale=cs,
                 colorbar=dict(
-                    title=title,
+                    title=dict(text=title, font=dict(color="black", size=14)),
                     tickmode="array",
                     tickvals=tickvals,
                     ticktext=ticktext,
+                    tickfont=dict(color="black", size=12),
                     ticks="outside",
                     len=0.70,
                     thickness=18,
-                    x=0.75,  # push a bit to the right
+                    x=0.75,
                 ),
             ),
             hoverinfo="skip",
@@ -787,7 +840,7 @@ def make_zone_share_label_map(f: pd.DataFrame) -> tuple[go.Figure, pd.DataFrame]
     # Right-side legend for the discrete % colors
     add_discrete_percent_legend(
         fig,
-        title="Shot Share (%)",
+        title="Shots Percentage",
         bins=((0, 5), (5, 15), (15, 30), (30, 100)),
         colors=(
             "rgba(251,133,0,0.88)",
@@ -891,7 +944,10 @@ def render_shot_map(shots_df: pd.DataFrame) -> None:
     st.header("Shot Map – Deni Avdija")
     st.caption(
         "### This page explores where Deni Avdija takes his shots from on the court.\n\n"
-        "### It helps identify his most common shooting areas, his efficiency in different zones, and how his shot selection changes across game situations."
+        "### It helps identify his most common shooting areas, his efficiency in different zones, and how his shot selection changes across game situations.\n"
+        "### Hex bins - This view shows shot efficiency across the court using hexagonal, where color represents field goal percentage and size reflects shot volume in each area.\n"
+        "### Zone shots - This view groups shots into official court zones and highlights shooting efficiency per zone\n"
+        "### Zone shots (percent) - This view focuses on shot distribution, showing what percentage of total shot attempts comes from each zone."
     )
 
     df = shots_df.copy()

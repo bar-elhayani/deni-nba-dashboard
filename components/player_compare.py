@@ -367,8 +367,26 @@ def make_player_image_scatter(plot_df: pd.DataFrame, x_metric: str) -> go.Figure
     fig.update_layout(
         height=720,
         margin=dict(l=20, r=20, t=20, b=20),
-        xaxis=dict(title=x_metric, zeroline=False, showgrid=True),
-        yaxis=dict(title="Overall Score", zeroline=False, showgrid=True),
+        xaxis=dict(
+            title=dict(
+                text=x_metric,
+                font=dict(color="black", size=16, family="Arial"),
+            ),
+            tickfont=dict(color="black", size=14),
+            zeroline=False,
+            showgrid=True,
+        ),
+
+        yaxis=dict(
+            title=dict(
+                text="Overall Score",
+                font=dict(color="black", size=14, family="Arial"),
+            ),
+            tickfont=dict(color="black", size=14),
+            zeroline=False,
+            showgrid=True,
+        ),
+
         plot_bgcolor="rgba(255,255,255,0.0)",
         paper_bgcolor="rgba(255,255,255,0.0)",
     )
@@ -451,7 +469,20 @@ def render_player_compare(base_df: pd.DataFrame, adv_df: pd.DataFrame) -> None:
     with c_spacer:
         st.empty()
 
-    st.caption(f"Season: {season} | Group: {group_label} | Players shown: {len(plot_df)}")
+    st.markdown(
+        f"""
+        <div style="
+            font-size: 15px;
+            font-weight: 600;
+            color: #000000;
+            margin-top: 4px;
+            margin-bottom: 8px;
+        ">
+            Season: {season} | Group: {group_label} | Players shown: {len(plot_df)}
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     fig = make_player_image_scatter(plot_df, x_metric)
     if len(fig.data) == 0:

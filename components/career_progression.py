@@ -845,26 +845,27 @@ def _render_rank_barchart_for_selected_metric(
             text=f"{metric_label} — Deni vs League Avg",
             x=0.02,
             xanchor="left",
+            font=dict(color="black", size=18, family="Arial"),
         ),
         height=390,
         margin=dict(l=18, r=18, t=60, b=35),
         showlegend=False,
-        font=dict(size=15),
+        font=dict(size=15, color="black"),
         title_font=dict(size=18),
         bargap=0.55,
         bargroupgap=0.20,
     )
 
     fig.update_xaxes(
-        tickfont=dict(size=16),
+        tickfont=dict(size=16, color="black"),
         showline=False,
         showgrid=False,
         zeroline=False,
     )
 
     fig.update_yaxes(
-        title_text="Value",
-        tickfont=dict(size=14),
+        title=dict(text="Value", font=dict(color="black", size=16)),
+        tickfont=dict(size=14, color="black"),
         gridcolor="rgba(0,0,0,0.08)",
         zeroline=False,
         rangemode="tozero",
@@ -1056,12 +1057,20 @@ def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
 
     fig.update_layout(
         title=f"Evolution by Season — {metric_labels.get(chosen_metric, chosen_metric)}",
-        xaxis_title="Season",
-        yaxis_title=metric_labels.get(chosen_metric, chosen_metric),
         margin=dict(l=30, r=30, t=70, b=50),
         height=520,
         showlegend=False,
+
+        xaxis=dict(
+            title=dict(text="Season", font=dict(color="black", size=16)),
+            tickfont=dict(color="black", size=14),
+        ),
+        yaxis=dict(
+            title=dict(text=metric_labels.get(chosen_metric, chosen_metric), font=dict(color="black", size=16)),
+            tickfont=dict(color="black", size=14),
+        ),
     )
+
     fig.update_xaxes(
         type="category",
         categoryorder="array",

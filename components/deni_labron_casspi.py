@@ -803,8 +803,12 @@ def _render_tornado_mirror_chart(metrics_df: pd.DataFrame, deni_name: str, other
             zerolinewidth=2,
             title="",
         ),
-        yaxis=dict(title="", automargin=True, showgrid=False),
-        plot_bgcolor="rgba(255,255,255,0.0)",
+        yaxis=dict(
+            title="",
+            automargin=True,
+            showgrid=False,
+            tickfont=dict(color="rgba(0,0,0,0.95)", size=12, family="Arial"),
+        ),        plot_bgcolor="rgba(255,255,255,0.0)",
         paper_bgcolor="rgba(255,255,255,0.0)",
     )
 
@@ -964,7 +968,7 @@ def _render_tornado_grouped_chart(metrics_df: pd.DataFrame, deni_name: str, othe
             text=other_text_aligned,
             textposition="inside",
             insidetextanchor="middle",
-            textfont=dict(color="rgba(255,255,255,0.95)", size=11, family="Arial"),
+            textfont=dict(color="rgba(0,0,0,0.95)", size=11, family="Arial"),
             hovertemplate=f"{other_name}<br>%{{y}}: %{{text}}<extra></extra>",
         )
     )
@@ -1039,6 +1043,7 @@ def _render_tornado_grouped_chart(metrics_df: pd.DataFrame, deni_name: str, othe
             showgrid=False,
             showdividers=True,
             dividercolor="rgba(0,0,0,0.85)",
+            tickfont=dict(color="rgba(0,0,0,0.95)", size=12, family="Arial"),
             dividerwidth=1,
         ),
         plot_bgcolor="rgba(255,255,255,0.0)",

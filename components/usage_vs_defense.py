@@ -574,14 +574,14 @@ def make_player_image_scatter_xy(
         margin=dict(l=20, r=20, t=20, b=20),
         xaxis=dict(
             range=x_range_fixed,
-            title=dict(text=x_title, font=dict(color="black", size=16)),
+            title=dict(text=x_title, font=dict(color="black", size=18)),
             showgrid=True,
             zeroline=False,
             tickfont=dict(color="black", size=14),
         ),
         yaxis=dict(
             range=y_range_fixed,
-            title=dict(text=y_title, font=dict(color="black", size=16)),
+            title=dict(text=y_title, font=dict(color="black", size=18)),
             showgrid=True,
             zeroline=False,
             tickfont=dict(color="black", size=14),
@@ -649,7 +649,20 @@ def render_usage_vs_defense(base_df: pd.DataFrame, adv_df: pd.DataFrame) -> None
         offense_metric_key=offense_metric_key,
     )
 
-    st.caption(f"Season: {season} | Group: {group_label} | Players shown: {len(plot_df)}")
+    st.markdown(
+        f"""
+        <div style="
+            font-size: 15px;
+            font-weight: 600;
+            color: #000000;
+            margin-top: 4px;
+            margin-bottom: 8px;
+        ">
+            Season: {season} | Group: {group_label} | Players shown: {len(plot_df)}
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
     x_title = "Defense (higher = better)"
     if defense_metric == "DEF_RATING":
