@@ -409,9 +409,19 @@ def make_player_image_scatter(plot_df: pd.DataFrame, x_metric: str) -> go.Figure
 
 def render_player_compare(base_df: pd.DataFrame, adv_df: pd.DataFrame) -> None:
     st.header("Player Comparison – Deni vs Player Groups")
-    st.caption(
-        "### This page provides a direct comparison of Deni Avdija’s raw performance metrics.\n\n"
-        "### It highlights how different statistics contribute to his overall impact, and allows a clearer view of which areas drive his performance the most."
+    st.markdown(
+        """
+        <div style="max-width: 900px; line-height: 1.6; font-size: 22px;">
+            <p style="margin: 0 0 14px 0;">
+                This page provides a direct comparison of Deni Avdija’s raw performance metrics.
+            </p>
+            <p style="margin: 0;">
+                It highlights how different statistics contribute to his overall impact,
+                and allows a clearer view of which areas drive his performance the most.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
     )
 
     # Note: CSS wrapper tricks are unreliable in Streamlit because widgets are not actually children

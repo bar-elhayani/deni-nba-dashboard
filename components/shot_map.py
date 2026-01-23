@@ -942,12 +942,28 @@ def make_zone_share_label_map(f: pd.DataFrame) -> tuple[go.Figure, pd.DataFrame]
 # -----------------------------
 def render_shot_map(shots_df: pd.DataFrame) -> None:
     st.header("Shot Map – Deni Avdija")
-    st.caption(
-        "### This page explores where Deni Avdija takes his shots from on the court.\n\n"
-        "### It helps identify his most common shooting areas, his efficiency in different zones, and how his shot selection changes across game situations.\n"
-        "### Hex bins - This view shows shot efficiency across the court using hexagonal, where color represents field goal percentage and size reflects shot volume in each area.\n"
-        "### Zone shots - This view groups shots into official court zones and highlights shooting efficiency per zone\n"
-        "### Zone shots (percent) - This view focuses on shot distribution, showing what percentage of total shot attempts comes from each zone."
+    st.markdown(
+        """
+        <div style="max-width: 900px; line-height: 1.6; font-size: 22px;">
+            <p style="margin: 0 0 14px 0;">
+                This page explores where Deni Avdija takes his shots on the court and how effective he is from different areas.
+                It helps highlight his preferred shooting spots, efficiency patterns, and overall shot selection.
+            </p>
+            <ul style="margin: 0; padding-left: 26px;">
+                <li>
+                    <b>Hex bins</b> – Displays shot efficiency across the court using hexagonal bins.
+                    Color represents field goal percentage, while bin size reflects shot volume.
+                </li>
+                <li>
+                    <b>Zone shots</b> – Groups shots into official court zones and highlights shooting efficiency in each zone.
+                </li>
+                <li>
+                    <b>Zone shots (percent)</b> – Focuses on shot distribution, showing the percentage of total attempts taken from each zone.
+                </li>
+            </ul>
+        </div>
+        """,
+        unsafe_allow_html=True
     )
 
     df = shots_df.copy()

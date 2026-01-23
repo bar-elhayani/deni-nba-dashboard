@@ -882,10 +882,21 @@ def _render_rank_barchart_for_selected_metric(
 # ----------------------------
 def render_career_progression(base: pd.DataFrame, adv: pd.DataFrame):
     st.subheader("Career Progression Over Seasons")
-    st.caption(
-        "### This page focuses on Deni Avdija’s development over time.\n\n"
-        "### It shows how his key performance metrics evolve from season to season, allowing us to track trends, improvements, and changes throughout his NBA career."
+    st.markdown(
+        """
+        <div style="max-width: 900px; line-height: 1.6; font-size: 22px;">
+            <p style="margin: 0 0 14px 0;">
+                This page focuses on Deni Avdija’s development over time.
+            </p>
+            <p style="margin: 0;">
+                It shows how his key performance metrics evolve from season to season,
+                allowing us to track trends, improvements, and changes throughout his NBA career.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
     )
+
     st.markdown(
         """
         <style>
