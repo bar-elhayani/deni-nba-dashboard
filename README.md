@@ -94,3 +94,6 @@ Examples of visualizations included in the project:
 ## Author
 
 Created as part of a data science and visualization project focused on NBA analytics and player performance analysis.
+* Bar Elhayani
+* Noam Yehoshua
+* Dotan Katz
