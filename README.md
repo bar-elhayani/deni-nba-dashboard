@@ -1,5 +1,8 @@
 # Deni Avdija Performance Analysis Project
 
+## Link to app
+https://deni-nba-dashboard-vu4rzaua5hwajxo4tklwzj.streamlit.app/
+
 ## Overview
 
 This project focuses on analyzing the performance of NBA player Deni Avdija using data science and visualization techniques. The goal of the project is to explore player statistics, identify trends over time, compare performances across games and seasons, and generate insights using data analysis tools.
